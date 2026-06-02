@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     markActiveNav(active);
 
     if (!window.__cheBolisSiteLoaded) {
+        await loadScript('js/motion.js');
         await loadScript('js/site.js');
         window.__cheBolisSiteLoaded = true;
         if (typeof initCheBolisSite === 'function') initCheBolisSite();

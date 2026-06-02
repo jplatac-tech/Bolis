@@ -1,0 +1,296 @@
+/* Che Bolis — transiciones y animaciones globales */
+
+:root {
+    --motion-duration-fast: 0.16s;
+    --motion-duration: 0.28s;
+    --motion-duration-slow: 0.42s;
+    --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --motion-ease-spring: cubic-bezier(0.34, 1.25, 0.64, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --motion-duration-fast: 0.01ms;
+        --motion-duration: 0.01ms;
+        --motion-duration-slow: 0.01ms;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+@keyframes motion-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes motion-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes motion-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* Entrada suave de página */
+html:not(.motion-ready) body > main {
+    opacity: 0;
+}
+
+html.motion-ready body > main {
+    opacity: 1;
+    transition: opacity var(--motion-duration-slow) var(--motion-ease-out);
+}
+
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+        opacity var(--motion-duration-slow) var(--motion-ease-out),
+        transform var(--motion-duration-slow) var(--motion-ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.reveal.reveal--down {
+    transform: translateY(-14px);
+}
+
+.reveal.reveal--scale {
+    transform: scale(0.96);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Header al cargar */
+.site-header.reveal.is-visible {
+    animation: motion-fade-in var(--motion-duration-slow) var(--motion-ease-out);
+}
+
+/* —— Interactivos globales —— */
+.btn,
+.home-btn,
+.flow-btn,
+.build-plan-opt,
+.build-flavor-chip,
+.build-topping-chip,
+.build-shape-opt,
+.header-links,
+.site-footer__nav a,
+.flow-field input,
+.flow-field select,
+.flow-field textarea,
+.home-pricing__card,
+.home-sabor,
+.home-valor {
+    transition:
+        transform var(--motion-duration-fast) var(--motion-ease-spring),
+        box-shadow var(--motion-duration) var(--motion-ease-out),
+        border-color var(--motion-duration) var(--motion-ease-out),
+        background-color var(--motion-duration) var(--motion-ease-out),
+        color var(--motion-duration-fast) var(--motion-ease-out),
+        opacity var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+@media (hover: hover) {
+    .btn:hover:not(:disabled),
+    .home-btn:hover,
+    .flow-btn:hover:not(:disabled),
+    .build-plan-opt:hover:not(:disabled),
+    .build-flavor-chip:hover:not(.is-disabled),
+    .build-topping-chip:hover:not(.is-disabled),
+    .build-shape-opt:hover,
+    .home-pricing__card:hover,
+    .home-sabor:hover {
+        transform: translateY(-2px);
+    }
+
+    .site-header .btn:hover {
+        transform: translateY(-1px) translateX(2px);
+    }
+}
+
+.btn:active:not(:disabled),
+.home-btn:active,
+.flow-btn:active:not(:disabled),
+.build-plan-opt:active:not(:disabled),
+.build-flavor-chip:active:not(.is-disabled),
+.build-topping-chip:active:not(.is-disabled) {
+    transform: scale(0.97);
+}
+
+.build-flavor-chip.is-active,
+.build-topping-chip.is-active,
+.build-plan-opt.is-active {
+    transition:
+        transform var(--motion-duration) var(--motion-ease-spring),
+        box-shadow var(--motion-duration) var(--motion-ease-out),
+        border-color var(--motion-duration) var(--motion-ease-out),
+        background var(--motion-duration) var(--motion-ease-out);
+}
+
+.flow-card {
+    transition:
+        box-shadow var(--motion-duration) var(--motion-ease-out),
+        border-color var(--motion-duration) var(--motion-ease-out),
+        transform var(--motion-duration) var(--motion-ease-out);
+}
+
+@media (hover: hover) {
+    .flow-card:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* FAQ acordeón */
+.faq-accordion {
+    transition: background-color var(--motion-duration) var(--motion-ease-out);
+}
+
+.faq-accordion i {
+    transition: transform var(--motion-duration) var(--motion-ease-spring);
+}
+
+.faq.active .faq-accordion i.bi-dash,
+.faq.active .faq-accordion i.bi-plus {
+    transform: rotate(180deg);
+}
+
+.faq .content {
+    transition:
+        max-height var(--motion-duration-slow) var(--motion-ease-out),
+        padding var(--motion-duration) var(--motion-ease-out),
+        opacity var(--motion-duration) var(--motion-ease-out);
+    opacity: 0;
+}
+
+.faq.active .content {
+    opacity: 1;
+}
+
+/* Hero flyer (solo pantallas medianas+) */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+    .home-hero__flyer-wrap {
+        animation: motion-float 5.5s ease-in-out infinite;
+    }
+}
+
+/* Menú móvil */
+@media (max-width: 1023px) {
+    body.modal-open::before {
+        content: '';
+        position: fixed;
+        inset: var(--app-header-h, 4rem) 0 0 0;
+        z-index: 18;
+        background: rgba(45, 21, 37, 0.38);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        animation: motion-fade-in var(--motion-duration) var(--motion-ease-out);
+        pointer-events: none;
+    }
+
+    .tw-dark body.modal-open::before {
+        background: rgba(0, 0, 0, 0.55);
+    }
+
+    header .collapsible-header {
+        transition:
+            opacity var(--motion-duration) var(--motion-ease-out),
+            transform var(--motion-duration) var(--motion-ease-out),
+            visibility var(--motion-duration);
+        transform: translateY(-10px);
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    header .collapsible-header.is-nav-open {
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+        opacity: 1 !important;
+        min-height: min(90vh, 100dvh);
+        height: auto !important;
+    }
+
+    header .collapsible-header.is-nav-open .header-links,
+    header .collapsible-header.is-nav-open .btn {
+        animation: motion-fade-up var(--motion-duration-slow) var(--motion-ease-out) both;
+    }
+
+    header .collapsible-header.is-nav-open .header-links:nth-child(1) {
+        animation-delay: 0.05s;
+    }
+    header .collapsible-header.is-nav-open .header-links:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+    header .collapsible-header.is-nav-open .header-links:nth-child(3) {
+        animation-delay: 0.15s;
+    }
+    header .collapsible-header.is-nav-open .header-links:nth-child(4) {
+        animation-delay: 0.2s;
+    }
+    header .collapsible-header.is-nav-open .header-links:nth-child(5) {
+        animation-delay: 0.25s;
+    }
+
+    #collapse-btn {
+        transition: transform var(--motion-duration-fast) var(--motion-ease-spring);
+    }
+
+    #collapse-btn.bi-x {
+        transform: rotate(90deg);
+    }
+}
+
+/* Enlaces del footer */
+.site-footer__nav a {
+    display: inline-block;
+}
+
+@media (hover: hover) {
+    .site-footer__nav a:hover {
+        transform: translateX(3px);
+    }
+}
+
+/* Mapa domicilio */
+#delivery-map {
+    opacity: 0;
+    transition: opacity var(--motion-duration-slow) var(--motion-ease-out);
+}
+
+#delivery-map.is-map-ready {
+    opacity: 1;
+}

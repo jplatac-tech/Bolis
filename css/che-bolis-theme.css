@@ -11,24 +11,24 @@
     --bolis-plum: #6a1b9a;
     --bolis-lime: #4caf50;
     --bolis-coconut: #8d6e63;
-    --bolis-cream: #fff8e7;
+    --bolis-cream: #ede8e0;
 
-    /* App — claro */
-    --app-bg: #fff8e7;
-    --app-bg-elevated: #ffffff;
-    --app-bg-soft: #faf8fc;
-    --app-bg-accent: #fce4ec;
-    --app-bg-warm: #fff9c4;
-    --app-text: #2d1525;
-    --app-text-muted: #5c4a55;
-    --app-text-soft: #7a6570;
-    --app-border: #ecd0e0;
-    --app-border-strong: #f48fb1;
-    --app-header-bg: rgba(255, 255, 255, 0.96);
-    --app-header-shadow: 0 4px 20px rgba(74, 20, 140, 0.1);
-    --app-shadow: 0 6px 20px rgba(74, 20, 140, 0.06);
-    --app-shadow-md: 0 8px 28px rgba(74, 20, 140, 0.12);
-    --app-guard-bg: #fff3cd;
+    /* App — claro (tonos suaves, sin blanco puro) */
+    --app-bg: #ebe6de;
+    --app-bg-elevated: #f4f1eb;
+    --app-bg-soft: #e8e3db;
+    --app-bg-accent: #e8dce4;
+    --app-bg-warm: #e6dfd0;
+    --app-text: #352830;
+    --app-text-muted: #5a4f56;
+    --app-text-soft: #73686f;
+    --app-border: #d4c8ce;
+    --app-border-strong: #d98ab0;
+    --app-header-bg: rgba(244, 241, 235, 0.94);
+    --app-header-shadow: 0 4px 18px rgba(74, 20, 140, 0.08);
+    --app-shadow: 0 6px 18px rgba(45, 21, 37, 0.06);
+    --app-shadow-md: 0 8px 24px rgba(45, 21, 37, 0.1);
+    --app-guard-bg: #ebe0c4;
     --app-guard-border: #ffd600;
     --app-success-bg: #e8f5e9;
     --app-success-text: #2e7d32;
@@ -45,10 +45,10 @@
     --btn-color: #ffffff;
     --btn-bg: linear-gradient(135deg, #e91e8c 0%, #d81b60 100%);
     --header-link-hover: var(--bolis-purple);
-    --header-link-hover-bg: #ffd60040;
+    --header-link-hover-bg: rgba(212, 175, 80, 0.22);
     --header-bg: var(--app-header-bg);
     --dropdown-bg: var(--app-bg);
-    --dropdown-hover-bg: #ffd60050;
+    --dropdown-hover-bg: rgba(212, 175, 80, 0.18);
     --faq-h-text: var(--bolis-purple);
     --faq-content-text: var(--app-text-muted);
     --footer-link: var(--bolis-purple);
@@ -83,6 +83,13 @@
     filter: brightness(1.08);
 }
 
+.btn:focus-visible,
+.home-btn:focus-visible,
+.flow-btn:focus-visible {
+    outline: 2px solid var(--bolis-pink);
+    outline-offset: 2px;
+}
+
 .btn-outline-bolis {
     background: transparent !important;
     color: var(--bolis-purple) !important;
@@ -97,7 +104,7 @@
 .header-links.nav-active::after {
     transform: scale(100%);
     opacity: 1;
-    background-color: #ffd60050;
+    background-color: rgba(212, 175, 80, 0.22);
 }
 
 /* FAQ global */

@@ -115,6 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
             toppingsRoot.innerHTML =
                 '<p class="build-catalog-error">No se pudo cargar toppings. Recarga la página.</p>';
         }
+
+        if (window.CheBolisMotion) {
+            window.CheBolisMotion.refresh(document.querySelector('main'));
+        }
     }
 
     function shapeRadius(shape) {
@@ -382,4 +386,5 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCatalog();
     persist();
     syncUIFromOrder();
+    if (window.CheBolisMotion) window.CheBolisMotion.refresh(document.querySelector('main'));
 });

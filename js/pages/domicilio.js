@@ -93,6 +93,7 @@ function initMap(STORE) {
         .addTo(map)
         .bindPopup(`<b>${STORE.name}</b><br>${STORE.address}`);
 
+    mapEl.classList.add('is-map-ready');
     setTimeout(() => map.invalidateSize(), 200);
 }
 

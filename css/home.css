@@ -129,7 +129,7 @@ body[data-page='inicio'] {
     line-height: 1.1;
     color: var(--bolis-pink);
     margin: 0;
-    text-shadow: 2px 2px 0 var(--app-bg-elevated), 3px 3px 0 var(--bolis-yellow);
+    text-shadow: 1px 1px 0 var(--app-bg-elevated), 2px 2px 0 rgba(255, 214, 0, 0.45);
 }
 
 .home-hero__text {
