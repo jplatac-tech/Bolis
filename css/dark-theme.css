@@ -74,10 +74,11 @@
 
 /* Header */
 .tw-dark .site-header {
-    backdrop-filter: blur(14px) saturate(1.15);
-    -webkit-backdrop-filter: blur(14px) saturate(1.15);
-    border-bottom: 1px solid var(--app-header-glow);
-    box-shadow: var(--app-header-shadow), 0 1px 0 var(--app-header-glow) !important;
+    background: rgba(14, 13, 20, 0.48) !important;
+    backdrop-filter: blur(16px) saturate(1.15);
+    -webkit-backdrop-filter: blur(16px) saturate(1.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35) !important;
 }
 
 .tw-dark .site-header .header-links {

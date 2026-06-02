@@ -1,5 +1,45 @@
-/* Inicio: hero a pantalla completa bajo la navbar flotante */
+/* Inicio: navbar cristal sobre hero + contraste de enlaces */
 
 body[data-page='inicio'] main {
     padding-top: 0;
+}
+
+body[data-page='inicio'] .site-header {
+    background: rgba(30, 16, 28, 0.35) !important;
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18) !important;
+}
+
+body[data-page='inicio'] .site-header .header-links {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+body[data-page='inicio'] .site-header .header-links:hover,
+body[data-page='inicio'] .site-header .header-links.nav-active {
+    color: var(--bolis-yellow);
+}
+
+body[data-page='inicio'] .site-header__name-che {
+    color: #fff;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+body[data-page='inicio'] .site-header__name-bolis {
+    color: #ff8ec8;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+body[data-page='inicio'] .site-header__theme-toggle {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #fff !important;
+}
+
+body[data-page='inicio'] .site-header__menu-btn {
+    color: rgba(255, 255, 255, 0.92) !important;
+}
+
+body[data-page='inicio'].tw-dark .site-header,
+.tw-dark body[data-page='inicio'] .site-header {
+    background: rgba(8, 6, 14, 0.45) !important;
 }
