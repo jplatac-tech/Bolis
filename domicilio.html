@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Domicilio — Che Bolis</title>
+    <meta name="description" content="Confirma tu dirección y tiempo de entrega en Cartagena." />
+    <link rel="shortcut icon" href="assets/logo/che-bolis.png" type="image/png" />
+    <script src="js/theme-init.js"></script>
+    <link rel="stylesheet" href="css/tailwind-build.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/che-bolis-theme.css" />
+    <link rel="stylesheet" href="css/app-base.css" />
+    <link rel="stylesheet" href="css/site-footer.css" />
+    <link rel="stylesheet" href="css/order-flow.css" />
+    <link rel="stylesheet" href="css/domicilio-page.css" />
+    <link rel="stylesheet" href="css/typography.css" />
+    <link rel="stylesheet" href="css/dark-theme.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body data-page="domicilio">
+
+    <div id="site-header"></div>
+
+    <main>
+        <div class="flow-container">
+            <div id="domicilio-guard" class="flow-guard">
+                <p>Tu carrito está vacío. Primero arma tu bolizada.</p>
+                <a href="bolizada.html" class="flow-btn flow-btn--primary">Ir a armar</a>
+            </div>
+
+            <header class="flow-header">
+                <h1 class="flow-header__title">Domicilio</h1>
+                <p class="flow-header__desc">Indica dónde entregamos tu pedido en Cartagena y revisa la ruta estimada.</p>
+            </header>
+
+            <div class="flow-layout flow-layout--2">
+                <div class="flow-card">
+                    <div class="flow-card__head">
+                        <span class="flow-card__icon" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+                        <h2 class="flow-card__title">Dirección de entrega</h2>
+                    </div>
+                    <div class="flow-card__body">
+                        <div class="flow-order-mini" id="domicilio-order-mini"></div>
+
+                        <div class="flow-field">
+                            <label for="delivery-address">Dirección completa</label>
+                            <input
+                                type="text"
+                                id="delivery-address"
+                                class="flow-input"
+                                placeholder="Ej: Cra 4 #36-12, Getsemaní"
+                                autocomplete="street-address"
+                            />
+                        </div>
+
+                        <button type="button" id="btn-calc-route" class="flow-btn flow-btn--primary flow-btn--block">
+                            <i class="bi bi-signpost-split"></i> Calcular ruta y tiempo
+                        </button>
+
+                        <p id="delivery-status" class="flow-status flow-status--muted" role="status"></p>
+
+                        <div class="flow-eta-grid">
+                            <div class="flow-eta-box">
+                                <p class="flow-eta-box__label">Tiempo est.</p>
+                                <p class="flow-eta-box__value" id="delivery-eta">—</p>
+                            </div>
+                            <div class="flow-eta-box">
+                                <p class="flow-eta-box__label">Distancia</p>
+                                <p class="flow-eta-box__value" id="delivery-distance">—</p>
+                            </div>
+                        </div>
+
+                        <div class="flow-actions">
+                            <button type="button" id="btn-go-payment" class="flow-btn flow-btn--primary flow-btn--block" disabled>
+                                Continuar al pago <i class="bi bi-credit-card"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card flow-card--map">
+                    <div class="flow-card__head flow-card__head--purple">
+                        <span class="flow-card__icon" aria-hidden="true"><i class="bi bi-map"></i></span>
+                        <h2 class="flow-card__title">Ruta de entrega</h2>
+                    </div>
+                    <div class="flow-card__body flow-map-wrap">
+                        <div id="delivery-map" aria-label="Mapa de ruta"></div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="bolizada.html" class="flow-back"><i class="bi bi-arrow-left"></i> Volver a armar bolizada</a>
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="js/order-store.js"></script>
+    <script src="js/order-core.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="js/pages/domicilio.js"></script>
+</body>
+</html>

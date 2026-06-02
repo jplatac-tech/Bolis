@@ -1,0 +1,195 @@
+/* Footer — alineado con header y marca Che Bolis */
+
+#site-footer {
+    flex-shrink: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.site-footer {
+    position: relative;
+    color: #fff;
+    background: linear-gradient(160deg, var(--bolis-plum) 0%, var(--bolis-magenta) 55%, var(--bolis-pink) 100%);
+    padding: 0 var(--app-gutter) calc(1.1rem + env(safe-area-inset-bottom));
+    overflow: hidden;
+}
+
+.site-footer__accent {
+    height: 4px;
+    background: linear-gradient(90deg, var(--bolis-yellow) 0%, #fff 50%, var(--bolis-yellow) 100%);
+    margin: 0 calc(-1 * var(--app-gutter)) 1.25rem;
+}
+
+.site-footer__container {
+    max-width: var(--app-max-width);
+    margin: 0 auto;
+}
+
+.site-footer__grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    text-align: center;
+}
+
+@media (min-width: 900px) {
+    .site-footer__grid {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        gap: 1.5rem 2.5rem;
+        text-align: left;
+    }
+}
+
+/* Marca */
+.site-footer__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    flex-shrink: 0;
+}
+
+@media (min-width: 900px) {
+    .site-footer__brand {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+    }
+}
+
+.site-footer__logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+.site-footer__brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .site-footer__brand-text {
+        align-items: flex-start;
+    }
+}
+
+.site-footer__tagline {
+    margin: 0;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--bolis-yellow);
+    line-height: 1.3;
+}
+
+.site-footer__city {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.3;
+}
+
+.site-footer__city .bi {
+    font-size: 0.8rem;
+    color: var(--bolis-yellow);
+}
+
+/* Misma lógica de enlaces que el header */
+.site-footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem 0.15rem;
+    width: 100%;
+    max-width: 36rem;
+}
+
+@media (min-width: 900px) {
+    .site-footer__nav {
+        justify-content: flex-end;
+        justify-self: end;
+    }
+}
+
+.site-footer__link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+}
+
+.site-footer__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 8px;
+    background: rgba(255, 214, 0, 0.22);
+    transform: scale(0.85);
+    opacity: 0;
+    transition: transform 0.25s, opacity 0.25s;
+}
+
+.site-footer__link:hover {
+    color: #fff;
+}
+
+.site-footer__link:hover::after {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.site-footer__link.nav-active {
+    color: var(--bolis-yellow);
+}
+
+.site-footer__link.nav-active::after {
+    transform: scale(1);
+    opacity: 1;
+    background: rgba(255, 214, 0, 0.28);
+}
+
+.site-footer__link:focus-visible {
+    outline: 2px solid var(--bolis-yellow);
+    outline-offset: 2px;
+}
+
+.site-footer__copy {
+    margin: 1.15rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.4;
+}
+
+@media (min-width: 900px) {
+    .site-footer__copy {
+        text-align: center;
+    }
+}

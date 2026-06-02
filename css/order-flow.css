@@ -1,0 +1,267 @@
+/* Flujo de pedido — bolizada, domicilio, pago */
+
+body[data-page='bolizada'],
+body[data-page='domicilio'],
+body[data-page='pago'] {
+    background: var(--app-bg);
+    color: var(--app-text);
+}
+
+.flow-container {
+    width: 100%;
+    max-width: var(--app-max-width);
+    margin: 0 auto;
+    padding: 0 var(--app-gutter);
+}
+
+.flow-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .flow-header {
+        margin-bottom: 2rem;
+    }
+}
+
+.flow-header__title {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(1.5rem, 6vw, 2.35rem);
+    color: var(--bolis-pink);
+    margin: 0;
+    line-height: 1.15;
+    text-shadow: 2px 2px 0 var(--app-bg-elevated), 2px 2px 0 var(--bolis-yellow);
+}
+
+.flow-header__desc {
+    font-size: clamp(0.9375rem, 2.5vw, 1.05rem);
+    color: var(--app-text-muted);
+    max-width: 28rem;
+    margin: 0.5rem auto 0;
+    line-height: 1.5;
+    padding: 0 0.25rem;
+}
+
+.flow-guard {
+    display: none;
+    max-width: 24rem;
+    margin: 0 auto 1.25rem;
+    padding: 1rem 1.15rem;
+    text-align: center;
+    background: var(--app-guard-bg);
+    border: 1px solid var(--app-guard-border);
+    border-radius: 14px;
+    color: var(--bolis-purple);
+    font-size: 0.88rem;
+}
+
+.flow-guard.is-visible {
+    display: block;
+}
+
+.flow-guard .flow-btn {
+    margin-top: 0.75rem;
+}
+
+.flow-card {
+    background: var(--app-bg-elevated);
+    border-radius: 16px;
+    border: 1px solid var(--app-border);
+    box-shadow: var(--app-shadow);
+    overflow: hidden;
+}
+
+.flow-card__head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    background: linear-gradient(90deg, var(--app-bg-accent) 0%, var(--app-bg) 100%);
+    border-bottom: 1px solid var(--app-border);
+}
+
+.flow-card__head--purple {
+    background: var(--bolis-purple);
+    border-bottom: none;
+    color: #fff;
+}
+
+.flow-card__head--purple .flow-card__title {
+    color: #fff;
+}
+
+.flow-card__icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--bolis-purple);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.flow-card__head--purple .flow-card__icon {
+    background: var(--bolis-yellow);
+    color: #4a148c;
+}
+
+.flow-card__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--bolis-purple);
+}
+
+.flow-card__body {
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .flow-card__body {
+        padding: 1.15rem;
+    }
+}
+
+.flow-field {
+    margin-bottom: 1rem;
+}
+
+.flow-field label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--bolis-purple);
+    margin-bottom: 0.4rem;
+}
+
+.flow-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 16px;
+    font-family: inherit;
+    border: 2px solid var(--app-border);
+    border-radius: 10px;
+    background: var(--app-bg-soft);
+    color: var(--app-text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+    min-height: 2.75rem;
+}
+
+.flow-input:focus {
+    border-color: var(--bolis-pink);
+    box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.15);
+}
+
+.flow-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.75rem 1.2rem;
+    min-height: 2.75rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    font-family: inherit;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.flow-btn--primary {
+    background: var(--bolis-magenta);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(233, 30, 140, 0.35);
+}
+
+.flow-btn--primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(233, 30, 140, 0.45);
+}
+
+.flow-btn--primary:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.flow-btn--ghost {
+    background: transparent;
+    color: var(--bolis-purple);
+    border: 2px solid var(--bolis-pink);
+}
+
+.flow-btn--block {
+    width: 100%;
+}
+
+.flow-status {
+    font-size: 0.82rem;
+    margin: 0.75rem 0 0;
+    line-height: 1.4;
+    min-height: 1.2em;
+}
+
+.flow-status--muted {
+    color: var(--app-text-soft);
+}
+
+.flow-status--ok {
+    color: var(--bolis-lime);
+    font-weight: 600;
+}
+
+.flow-status--warn {
+    color: #ef5350;
+    font-weight: 600;
+}
+
+.flow-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--bolis-pink);
+    text-decoration: none;
+    padding: 0.25rem 0;
+}
+
+.flow-back:hover {
+    text-decoration: underline;
+}
+
+.flow-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .flow-layout {
+        gap: 1.25rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .flow-layout--2 {
+        grid-template-columns: 1fr 1.05fr;
+    }
+
+    .flow-layout--pay {
+        grid-template-columns: 1fr 1fr;
+        max-width: 56rem;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,226 @@
+/* Legibilidad — pesos y tamaños más cómodos */
+
+:root {
+    --type-xs: 0.8125rem;
+    --type-sm: 0.875rem;
+    --type-base: 1rem;
+    --type-md: 1.0625rem;
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+}
+
+body {
+    font-size: var(--type-base);
+    font-weight: var(--fw-normal);
+    line-height: 1.55;
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: var(--type-md);
+    }
+}
+
+/* Navegación */
+.header-links {
+    font-weight: var(--fw-medium);
+    font-size: var(--type-sm);
+}
+
+.header-links.nav-active {
+    font-weight: var(--fw-semibold);
+}
+
+.site-header .btn {
+    font-weight: var(--fw-semibold);
+    font-size: var(--type-sm);
+}
+
+/* Etiquetas / overlines */
+.flow-header__label,
+.build-group__title,
+.flow-field label,
+.flow-eta-box__label,
+.flow-total-box__label,
+.home-section__label,
+.home-hero__tagline,
+.home-hero__pretitle,
+.build-step__hint,
+.site-footer__tagline,
+.site-footer__copy {
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.05em;
+}
+
+.flow-header__label,
+.build-group__title,
+.home-section__label,
+.home-hero__tagline,
+.home-hero__pretitle {
+    font-size: var(--type-xs);
+}
+
+.flow-field label,
+.flow-eta-box__label,
+.flow-total-box__label {
+    font-size: var(--type-xs);
+}
+
+/* Títulos de bloque (no script) */
+.build-step__title,
+.flow-card__title,
+.home-valor h3,
+.home-combo__name {
+    font-size: var(--type-base);
+    font-weight: var(--fw-semibold);
+}
+
+.flow-header__desc,
+.home-section__desc,
+.home-hero__text,
+.home-valor p,
+.flow-order-mini,
+.flow-status,
+.flow-pay-note,
+.flow-success__text {
+    font-size: var(--type-sm);
+    font-weight: var(--fw-normal);
+    line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+    .flow-header__desc,
+    .home-section__desc,
+    .home-hero__text {
+        font-size: var(--type-base);
+    }
+}
+
+/* Botones */
+.flow-btn,
+.home-btn {
+    font-size: var(--type-sm);
+    font-weight: var(--fw-semibold);
+}
+
+.btn {
+    font-weight: var(--fw-semibold) !important;
+}
+
+/* Chips sabores — lista ancha */
+.build-flavor-chip__name {
+    font-size: var(--type-sm);
+    font-weight: var(--fw-semibold);
+}
+
+/* Chips toppings */
+.build-topping-chip__name {
+    font-size: var(--type-sm);
+    font-weight: var(--fw-medium);
+}
+
+.build-topping-chip__price {
+    font-size: var(--type-xs);
+    font-weight: var(--fw-semibold);
+}
+
+.build-shape__label {
+    font-size: var(--type-xs);
+    font-weight: var(--fw-medium);
+}
+
+/* Resumen / listas */
+.build-summary__details,
+.flow-recap-list {
+    font-size: var(--type-sm);
+}
+
+.build-summary__row > span,
+.flow-recap-list span:first-child {
+    font-weight: var(--fw-medium);
+}
+
+.build-summary__row strong,
+.flow-recap-list strong {
+    font-weight: var(--fw-semibold);
+}
+
+.build-summary__total-label {
+    font-size: var(--type-xs);
+    font-weight: var(--fw-semibold);
+}
+
+.build-summary__total,
+.flow-total-box__amount,
+.flow-eta-box__value {
+    font-weight: var(--fw-bold);
+}
+
+.flow-eta-box__value {
+    font-size: 1.35rem;
+}
+
+.build-summary__total {
+    font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .build-summary__total {
+        font-size: 1.65rem;
+    }
+}
+
+/* Footer links */
+.site-footer__link {
+    font-size: var(--type-sm);
+    font-weight: var(--fw-medium);
+}
+
+/* FAQ */
+body[data-page='inicio'] .faq-accordion {
+    font-size: var(--type-sm);
+    font-weight: var(--fw-semibold);
+}
+
+/* Combos / precios */
+.home-combo__list {
+    font-size: var(--type-sm);
+}
+
+.home-combo__price {
+    font-weight: var(--fw-bold);
+}
+
+.home-hero__price {
+    font-size: var(--type-sm);
+    font-weight: var(--fw-medium);
+}
+
+.home-hero__price strong {
+    font-weight: var(--fw-bold);
+}
+
+/* Sabores cards inicio */
+.home-sabor__body h3 {
+    font-size: var(--type-sm);
+    font-weight: var(--fw-semibold);
+}
+
+.home-sabor__body p {
+    font-size: var(--type-xs);
+    font-weight: var(--fw-normal);
+}
+
+/* Guard alerts */
+.flow-guard {
+    font-size: var(--type-sm);
+    font-weight: var(--fw-normal);
+}
+
+/* Inputs legibles */
+.flow-input {
+    font-size: var(--type-base);
+    font-weight: var(--fw-normal);
+}

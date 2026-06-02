@@ -1,0 +1,107 @@
+/* Che Bolis — tokens de marca + tema claro/oscuro */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+    /* Marca */
+    --bolis-pink: #e91e8c;
+    --bolis-magenta: #d81b60;
+    --bolis-yellow: #ffd600;
+    --bolis-orange: #ff9800;
+    --bolis-purple: #4a148c;
+    --bolis-plum: #6a1b9a;
+    --bolis-lime: #4caf50;
+    --bolis-coconut: #8d6e63;
+    --bolis-cream: #fff8e7;
+
+    /* App — claro */
+    --app-bg: #fff8e7;
+    --app-bg-elevated: #ffffff;
+    --app-bg-soft: #faf8fc;
+    --app-bg-accent: #fce4ec;
+    --app-bg-warm: #fff9c4;
+    --app-text: #2d1525;
+    --app-text-muted: #5c4a55;
+    --app-text-soft: #7a6570;
+    --app-border: #ecd0e0;
+    --app-border-strong: #f48fb1;
+    --app-header-bg: rgba(255, 255, 255, 0.96);
+    --app-header-shadow: 0 4px 20px rgba(74, 20, 140, 0.1);
+    --app-shadow: 0 6px 20px rgba(74, 20, 140, 0.06);
+    --app-shadow-md: 0 8px 28px rgba(74, 20, 140, 0.12);
+    --app-guard-bg: #fff3cd;
+    --app-guard-border: #ffd600;
+    --app-success-bg: #e8f5e9;
+    --app-success-text: #2e7d32;
+
+    --app-gutter: 1rem;
+    --app-max-width: 72rem;
+    --app-header-h: 4rem;
+    --app-main-pt: 4.5rem;
+    --app-main-pb: 2rem;
+
+    /* Legacy (index.css) */
+    --primary-text-color: var(--app-text);
+    --bg-color: var(--app-bg);
+    --btn-color: #ffffff;
+    --btn-bg: linear-gradient(135deg, #e91e8c 0%, #d81b60 100%);
+    --header-link-hover: var(--bolis-purple);
+    --header-link-hover-bg: #ffd60040;
+    --header-bg: var(--app-header-bg);
+    --dropdown-bg: var(--app-bg);
+    --dropdown-hover-bg: #ffd60050;
+    --faq-h-text: var(--bolis-purple);
+    --faq-content-text: var(--app-text-muted);
+    --footer-link: var(--bolis-purple);
+    --footer-link-hover: var(--bolis-pink);
+    --hr-color: var(--app-border);
+}
+
+/* Modo oscuro: ver css/dark-theme.css */
+
+@media (min-width: 768px) {
+    :root {
+        --app-gutter: 1.25rem;
+        --app-main-pt: 5.25rem;
+        --app-main-pb: 2.5rem;
+    }
+}
+
+.brand-script {
+    font-family: 'Pacifico', cursive;
+    color: var(--bolis-pink);
+}
+
+.btn {
+    background: var(--bolis-magenta) !important;
+    color: #fff !important;
+    border: none;
+    font-weight: 700;
+    border-radius: 999px;
+}
+
+.btn:hover {
+    filter: brightness(1.08);
+}
+
+.btn-outline-bolis {
+    background: transparent !important;
+    color: var(--bolis-purple) !important;
+    border: 2px solid var(--bolis-pink) !important;
+}
+
+.header-links.nav-active {
+    color: var(--bolis-pink);
+    font-weight: 600;
+}
+
+.header-links.nav-active::after {
+    transform: scale(100%);
+    opacity: 1;
+    background-color: #ffd60050;
+}
+
+/* FAQ global */
+.faq.active .content {
+    max-height: 200px;
+    padding: 12px 18px;
+}

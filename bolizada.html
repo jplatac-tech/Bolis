@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Armar tu Bolizada — Che Bolis</title>
+    <meta name="description" content="Personaliza forma, sabores y toppings de tu mini bolizada Che Bolis." />
+    <link rel="shortcut icon" href="assets/logo/che-bolis.png" type="image/png" />
+    <script src="js/theme-init.js"></script>
+    <link rel="stylesheet" href="css/tailwind-build.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/che-bolis-theme.css" />
+    <link rel="stylesheet" href="css/app-base.css" />
+    <link rel="stylesheet" href="css/site-footer.css" />
+    <link rel="stylesheet" href="css/order-flow.css" />
+    <link rel="stylesheet" href="css/bolizada-page.css" />
+    <link rel="stylesheet" href="css/typography.css" />
+    <link rel="stylesheet" href="css/dark-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body data-page="bolizada">
+
+    <div id="site-header"></div>
+
+    <main>
+        <div class="flow-container build-container">
+            <header class="flow-header build-header">
+                <h1 class="flow-header__title build-header__title">Arma tu Bolizada</h1>
+                <p class="flow-header__desc build-header__desc">Elige tu combo; solo podrás usar los sabores y toppings que incluye.</p>
+            </header>
+
+            <div class="build-plan-bar" role="group" aria-label="Combo Bolizada">
+                <button type="button" class="build-plan-opt" data-plan="mini">
+                    <span class="build-plan-opt__price">$5.000</span>
+                    <span class="build-plan-opt__name">Mini</span>
+                    <span class="build-plan-opt__hint">1 sabor · 2 toppings</span>
+                </button>
+                <button type="button" class="build-plan-opt build-plan-opt--featured" data-plan="doble">
+                    <span class="build-plan-opt__price">$8.500</span>
+                    <span class="build-plan-opt__name">Doble</span>
+                    <span class="build-plan-opt__hint">2 sabores · toppings incl.</span>
+                </button>
+                <button type="button" class="build-plan-opt" data-plan="fiesta">
+                    <span class="build-plan-opt__price">$12.000</span>
+                    <span class="build-plan-opt__name">Fiesta</span>
+                    <span class="build-plan-opt__hint">4 sabores · todo incl.</span>
+                </button>
+            </div>
+            <p class="build-plan-notice" id="build-plan-notice" aria-live="polite"></p>
+
+            <div class="build-layout">
+                <div class="build-steps">
+                    <!-- FORMA -->
+                    <section class="build-step" aria-labelledby="step-forma">
+                        <div class="build-step__head">
+                            <span class="build-step__num"><i class="bi bi-circle" aria-hidden="true"></i></span>
+                            <div>
+                                <h2 class="build-step__title" id="step-forma"><i class="bi bi-circle build-step__ico" aria-hidden="true"></i> Forma de las bolitas</h2>
+                                <p class="build-step__hint">Cómo se verán tus bolis en el vaso</p>
+                            </div>
+                        </div>
+                        <div class="build-step__body">
+                            <div class="build-shapes" role="group" aria-label="Forma">
+                                <button type="button" class="build-shape" data-shape="circle" title="Círculo">
+                                    <i class="bi bi-circle build-shape__bi" aria-hidden="true"></i>
+                                    <span class="build-shape__label">Círculo</span>
+                                </button>
+                                <button type="button" class="build-shape" data-shape="star" title="Estrella">
+                                    <i class="bi bi-star-fill build-shape__bi" aria-hidden="true"></i>
+                                    <span class="build-shape__label">Estrella</span>
+                                </button>
+                                <button type="button" class="build-shape" data-shape="heart" title="Corazón">
+                                    <i class="bi bi-heart-fill build-shape__bi" aria-hidden="true"></i>
+                                    <span class="build-shape__label">Corazón</span>
+                                </button>
+                                <button type="button" class="build-shape" data-shape="square" title="Cuadrado">
+                                    <i class="bi bi-square-fill build-shape__bi" aria-hidden="true"></i>
+                                    <span class="build-shape__label">Cuadrado</span>
+                                </button>
+                                <button type="button" class="build-shape" data-shape="triangle" title="Triángulo">
+                                    <i class="bi bi-triangle-fill build-shape__bi" aria-hidden="true"></i>
+                                    <span class="build-shape__label">Triángulo</span>
+                                </button>
+                                <button type="button" class="build-shape" data-shape="hexagon" title="Hexágono">
+                                    <i class="bi bi-hexagon-fill build-shape__bi" aria-hidden="true"></i>
+                                    <span class="build-shape__label">Hexágono</span>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SABORES -->
+                    <section class="build-step" aria-labelledby="step-sabores">
+                        <div class="build-step__head">
+                            <span class="build-step__num"><i class="bi bi-cup-straw" aria-hidden="true"></i></span>
+                            <div>
+                                <h2 class="build-step__title" id="step-sabores"><i class="bi bi-cup-straw build-step__ico" aria-hidden="true"></i> Sabores</h2>
+                                <p class="build-step__hint">Empieza por los <strong>sabores fuertes</strong> — luego explora el resto del menú</p>
+                            </div>
+                        </div>
+                        <div class="build-step__body build-step__body--catalog">
+                            <div class="build-catalog" id="flavors-catalog" aria-live="polite"></div>
+                        </div>
+                    </section>
+
+                    <!-- TOPPINGS -->
+                    <section class="build-step" aria-labelledby="step-toppings">
+                        <div class="build-step__head">
+                            <span class="build-step__num"><i class="bi bi-stars" aria-hidden="true"></i></span>
+                            <div>
+                                <h2 class="build-step__title" id="step-toppings"><i class="bi bi-stars build-step__ico" aria-hidden="true"></i> Toppings</h2>
+                                <p class="build-step__hint">Opcionales — se suman al total</p>
+                            </div>
+                        </div>
+                        <div class="build-step__body build-step__body--catalog">
+                            <div class="build-catalog" id="toppings-catalog" aria-live="polite"></div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- RESUMEN -->
+                <aside class="build-summary" aria-label="Resumen del pedido">
+                    <div class="build-summary__head">
+                        <h2><i class="bi bi-cup-straw" aria-hidden="true"></i> Tu bolizada</h2>
+                        <div class="build-qty build-qty--inline" aria-label="Cantidad">
+                            <button type="button" class="build-qty__btn" id="qty-minus" aria-label="Menos">−</button>
+                            <span class="build-qty__value" id="bolizada-qty-display">1</span>
+                            <input type="hidden" id="bolizada-qty" value="1" min="1" max="10" />
+                            <button type="button" class="build-qty__btn" id="qty-plus" aria-label="Más">+</button>
+                        </div>
+                    </div>
+                    <div class="build-summary__preview">
+                        <div class="build-cup">
+                            <div class="build-cup__balls" id="bolizada-balls"></div>
+                            <div class="build-cup__body" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                    <div class="build-badges" aria-hidden="true">
+                        <span class="build-badge" title="Fruta natural"><i class="bi bi-flower1"></i></span>
+                        <span class="build-badge" title="Fresca"><i class="bi bi-snow2"></i></span>
+                        <span class="build-badge" title="Con amor"><i class="bi bi-heart-fill"></i></span>
+                    </div>
+                    <div class="build-summary__details" id="build-summary-details">
+                        <div class="build-summary__row"><span><i class="bi bi-tag-fill" aria-hidden="true"></i> Combo</span><strong id="summary-plan">Mini Bolizada</strong></div>
+                        <div class="build-summary__row"><span><i class="bi bi-circle" aria-hidden="true"></i> Forma</span><strong id="summary-shape">Círculo</strong></div>
+                        <div class="build-summary__row"><span><i class="bi bi-cup-straw" aria-hidden="true"></i> Sabores</span><strong id="summary-flavors">Maracuyá</strong></div>
+                        <div class="build-summary__row"><span><i class="bi bi-stars" aria-hidden="true"></i> Toppings</span><strong id="summary-toppings">Ninguno</strong></div>
+                        <div class="build-summary__row"><span><i class="bi bi-hash" aria-hidden="true"></i> Cantidad</span><strong id="summary-qty">1</strong></div>
+                    </div>
+                    <div class="build-summary__footer">
+                        <p class="build-summary__total-label"><i class="bi bi-cash-coin" aria-hidden="true"></i> Total estimado</p>
+                        <p class="build-summary__total" id="bolizada-total">$5.000</p>
+                    <button type="button" class="flow-btn flow-btn--primary flow-btn--block build-summary__cta" id="btn-confirm-order">
+                        Continuar a domicilio <i class="bi bi-truck"></i>
+                    </button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="js/order-store.js"></script>
+    <script src="js/order-core.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/pages/bolizada.js"></script>
+</body>
+</html>

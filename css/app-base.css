@@ -1,0 +1,186 @@
+/* Che Bolis — base global: layout, móvil, modo oscuro */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+}
+
+html.tw-dark {
+    color-scheme: dark;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background: var(--app-bg);
+    color: var(--app-text);
+    -webkit-font-smoothing: antialiased;
+}
+
+body > main {
+    flex: 0 1 auto;
+    width: 100%;
+    padding-top: var(--app-main-pt);
+    padding-bottom: 0;
+}
+
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+.app-container,
+.flow-container,
+.home-container {
+    width: 100%;
+    max-width: var(--app-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--app-gutter);
+    padding-right: var(--app-gutter);
+}
+
+/* —— Header —— */
+.site-header {
+    color: var(--app-text) !important;
+    background: var(--app-header-bg) !important;
+    box-shadow: var(--app-header-shadow) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    align-items: center !important;
+    gap: 0.5rem;
+}
+
+.site-header__brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.2rem 0.5rem 0.2rem 0;
+    margin-right: 0.35rem;
+    text-decoration: none;
+    line-height: 1.1;
+    z-index: 3;
+}
+
+.site-header__brand:focus-visible {
+    outline: 2px solid var(--bolis-pink);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+.site-header__name {
+    display: inline-block;
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(1.35rem, 4vw, 1.65rem);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    line-height: 1.15;
+}
+
+.site-header__name-che {
+    color: var(--bolis-purple);
+}
+
+.site-header__name-bolis {
+    color: var(--bolis-pink);
+    text-shadow: 1px 1px 0 var(--bolis-yellow), 2px 2px 0 rgba(74, 20, 140, 0.12);
+}
+
+.site-header .header-links {
+    color: var(--app-text-muted);
+}
+
+.site-header .header-links:hover,
+.site-header .header-links.nav-active {
+    color: var(--bolis-pink);
+}
+
+@media (max-width: 1023px) {
+    .site-header {
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 0 !important;
+        height: var(--app-header-h);
+        padding-left: max(var(--app-gutter), env(safe-area-inset-left)) !important;
+        padding-right: max(var(--app-gutter), env(safe-area-inset-right)) !important;
+    }
+
+    header .collapsible-header {
+        background-color: var(--app-bg-elevated) !important;
+        box-shadow: var(--app-shadow-md) !important;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .site-header {
+        border-radius: 12px !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .site-header__name {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .site-header__brand {
+        margin-right: 2.85rem;
+    }
+}
+
+/* Botón CTA header */
+.site-header .btn {
+    min-height: 2.5rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+    .site-header .btn span:first-child {
+        font-size: 0.85rem;
+    }
+}
+
+/* —— Utilidades —— */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Mapa oscuro: css/dark-theme.css */

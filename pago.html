@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pago — Che Bolis</title>
+    <meta name="description" content="Confirma y paga tu pedido Che Bolis." />
+    <link rel="shortcut icon" href="assets/logo/che-bolis.png" type="image/png" />
+    <script src="js/theme-init.js"></script>
+    <link rel="stylesheet" href="css/tailwind-build.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/che-bolis-theme.css" />
+    <link rel="stylesheet" href="css/app-base.css" />
+    <link rel="stylesheet" href="css/site-footer.css" />
+    <link rel="stylesheet" href="css/order-flow.css" />
+    <link rel="stylesheet" href="css/pago-page.css" />
+    <link rel="stylesheet" href="css/typography.css" />
+    <link rel="stylesheet" href="css/dark-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body data-page="pago">
+
+    <div id="site-header"></div>
+
+    <main>
+        <div class="flow-container">
+            <div id="pago-guard" class="flow-guard">
+                <p>No tienes un pedido pendiente. Arma tu bolizada para continuar.</p>
+                <a href="bolizada.html" class="flow-btn flow-btn--primary">Armar Bolizada</a>
+            </div>
+
+            <header class="flow-header">
+                <h1 class="flow-header__title">Pago</h1>
+                <p class="flow-header__desc">Revisa tu pedido y confirma el pago para enviarlo a cocina.</p>
+            </header>
+
+            <div class="flow-layout flow-layout--pay">
+                <aside class="flow-card">
+                    <div class="flow-card__head flow-card__head--purple">
+                        <span class="flow-card__icon" aria-hidden="true"><i class="bi bi-receipt"></i></span>
+                        <h2 class="flow-card__title">Resumen del pedido</h2>
+                    </div>
+                    <div class="flow-card__body">
+                        <ul class="flow-recap-list" id="pay-recap-list">
+                            <li><span>Combo</span><strong id="recap-plan">—</strong></li>
+                            <li><span>Forma</span><strong id="recap-shape">—</strong></li>
+                            <li><span>Sabores</span><strong id="recap-flavors">—</strong></li>
+                            <li><span>Toppings</span><strong id="recap-toppings">—</strong></li>
+                            <li><span>Cantidad</span><strong id="recap-qty">—</strong></li>
+                        </ul>
+                        <div class="flow-recap-delivery" id="pago-delivery-info" hidden></div>
+                        <div class="flow-total-box">
+                            <p class="flow-total-box__label">Total a pagar</p>
+                            <p class="flow-total-box__amount" id="pay-order-total">$5.000</p>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="flow-card">
+                    <div class="flow-card__head">
+                        <span class="flow-card__icon" aria-hidden="true"><i class="bi bi-credit-card"></i></span>
+                        <h2 class="flow-card__title">Datos de pago</h2>
+                    </div>
+                    <div class="flow-card__body flow-card__body--pay">
+                        <div id="payment-form-wrap">
+                            <form id="payment-form" class="flow-pay-form">
+                                <div class="flow-field">
+                                    <label for="card-name">Nombre en la tarjeta</label>
+                                    <input type="text" id="card-name" class="flow-input" placeholder="Como aparece en la tarjeta" required />
+                                </div>
+                                <div class="flow-field">
+                                    <label for="card-number">Número de tarjeta</label>
+                                    <input type="text" id="card-number" class="flow-input" placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric" required />
+                                </div>
+                                <div class="flow-pay-row">
+                                    <div class="flow-field">
+                                        <label for="card-exp">Vencimiento</label>
+                                        <input type="text" id="card-exp" class="flow-input" placeholder="MM/AA" maxlength="5" />
+                                    </div>
+                                    <div class="flow-field">
+                                        <label for="card-cvv">CVV</label>
+                                        <input type="text" id="card-cvv" class="flow-input" placeholder="123" maxlength="4" inputmode="numeric" />
+                                    </div>
+                                </div>
+                                <button type="submit" class="flow-btn flow-btn--primary flow-btn--block">
+                                    <i class="bi bi-lock-fill"></i> Confirmar y pagar
+                                </button>
+                                <p class="flow-pay-note">
+                                    <i class="bi bi-shield-check"></i> Pago seguro con encriptación SSL
+                                </p>
+                            </form>
+                        </div>
+
+                        <div id="payment-success" class="flow-success">
+                            <div class="flow-success__icon" aria-hidden="true"><i class="bi bi-check-circle-fill"></i></div>
+                            <h2 class="flow-success__title">¡Pedido confirmado!</h2>
+                            <p class="flow-success__id">Número: <strong id="payment-order-id"></strong></p>
+                            <p class="flow-success__text">Te enviaremos la confirmación. ¡Gracias por elegir Che Bolis!</p>
+                            <a href="index.html" class="flow-btn flow-btn--primary flow-btn--block">Volver al inicio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="domicilio.html" class="flow-back"><i class="bi bi-arrow-left"></i> Volver a domicilio</a>
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="js/order-store.js"></script>
+    <script src="js/order-core.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/pages/pago.js"></script>
+</body>
+</html>

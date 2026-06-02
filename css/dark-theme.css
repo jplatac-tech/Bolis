@@ -1,0 +1,606 @@
+/* Che Bolis — modo oscuro (noche caribeña · Cartagena) */
+
+.tw-dark {
+    /* Acentos de marca más luminosos sobre fondo oscuro */
+    --bolis-pink: #ff6eb8;
+    --bolis-magenta: #ff5a9e;
+    --bolis-yellow: #ffd95a;
+    --bolis-orange: #ffbf6e;
+    --bolis-purple: #d4b8ff;
+    --bolis-plum: #a87de8;
+    --bolis-cream: #f5f0fa;
+    --bolis-teal: #6ed4d4;
+
+    --app-bg: #0e0d14;
+    --app-bg-elevated: #181622;
+    --app-bg-soft: #221e30;
+    --app-bg-accent: #2c2642;
+    --app-bg-warm: #16121f;
+
+    --app-text: #f6f2fa;
+    --app-text-muted: #cfc4de;
+    --app-text-soft: #a89bb8;
+
+    --app-border: rgba(255, 255, 255, 0.08);
+    --app-border-strong: rgba(255, 110, 184, 0.4);
+
+    --app-header-bg: rgba(14, 13, 20, 0.82);
+    --app-header-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
+    --app-header-glow: rgba(255, 93, 173, 0.2);
+
+    --app-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+    --app-shadow-md: 0 16px 48px rgba(74, 20, 140, 0.22);
+
+    --app-guard-bg: rgba(255, 229, 102, 0.1);
+    --app-guard-border: rgba(255, 229, 102, 0.35);
+    --app-guard-text: #ffe566;
+
+    --app-success-bg: rgba(76, 175, 80, 0.14);
+    --app-success-text: #8fd694;
+
+    --primary-text-color: var(--app-text);
+    --bg-color: var(--app-bg);
+    --btn-color: #ffffff;
+    --btn-bg: linear-gradient(135deg, #ff4d94 0%, #9c4dcc 100%);
+    --header-link-hover: var(--bolis-yellow);
+    --header-link-hover-bg: rgba(255, 93, 173, 0.18);
+    --header-bg: var(--app-header-bg);
+    --dropdown-bg: var(--app-bg-elevated);
+    --dropdown-hover-bg: rgba(255, 93, 173, 0.14);
+    --faq-h-text: var(--bolis-cream);
+    --faq-content-text: var(--app-text-muted);
+    --footer-link: #d4c4e8;
+    --footer-link-hover: var(--bolis-pink);
+    --hr-color: var(--app-border);
+    --hero-gradient: #0c0a10;
+
+    /* Iconos sobre fondos de acento (no usar --bolis-purple claro como glyph) */
+    --icon-on-yellow-bg: #ffd95a;
+    --icon-on-yellow-fg: #3d2060;
+    --icon-on-plum-bg: #4a2878;
+    --icon-on-plum-fg: #ffffff;
+}
+
+/* Fondo ambiental */
+.tw-dark body {
+    background-color: var(--app-bg);
+    background-image:
+        radial-gradient(ellipse 90% 55% at 50% -12%, rgba(168, 125, 232, 0.22) 0%, transparent 52%),
+        radial-gradient(ellipse 55% 40% at 95% 25%, rgba(255, 90, 158, 0.1) 0%, transparent 48%),
+        radial-gradient(ellipse 45% 35% at 5% 75%, rgba(110, 212, 212, 0.07) 0%, transparent 42%),
+        linear-gradient(180deg, #0e0d14 0%, #12101a 48%, #0e0d14 100%);
+    background-attachment: fixed;
+}
+
+/* Header */
+.tw-dark .site-header {
+    backdrop-filter: blur(14px) saturate(1.15);
+    -webkit-backdrop-filter: blur(14px) saturate(1.15);
+    border-bottom: 1px solid var(--app-header-glow);
+    box-shadow: var(--app-header-shadow), 0 1px 0 var(--app-header-glow) !important;
+}
+
+.tw-dark .site-header .header-links {
+    color: var(--app-text-muted);
+}
+
+.tw-dark .site-header .header-links:hover,
+.tw-dark .site-header .header-links.nav-active {
+    color: var(--bolis-pink);
+}
+
+.tw-dark .site-header #theme-toggle,
+.tw-dark .site-header #collapse-btn {
+    color: var(--bolis-cream) !important;
+}
+
+.tw-dark .site-header .btn .bi {
+    color: inherit;
+}
+
+.tw-dark .site-header__name-che {
+    color: #f5e6ff;
+}
+
+.tw-dark .site-header__name-bolis {
+    color: var(--bolis-pink);
+    text-shadow: 1px 1px 0 rgba(255, 217, 90, 0.45), 0 0 12px rgba(255, 93, 173, 0.35);
+}
+
+.tw-dark .site-footer__logo {
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+.tw-dark .header-links.nav-active::after {
+    background-color: rgba(255, 93, 173, 0.22);
+}
+
+/* Marca */
+.tw-dark .brand-script {
+    color: var(--bolis-pink);
+    text-shadow: 0 0 24px rgba(255, 92, 173, 0.35);
+}
+
+/* Tarjetas y paneles */
+.tw-dark .build-step,
+.tw-dark .flow-card,
+.tw-dark .home-combo,
+.tw-dark .home-faq__box,
+.tw-dark .home-valores,
+.tw-dark .flow-eta-box,
+.tw-dark .flow-order-mini {
+    background: var(--app-bg-elevated);
+    border-color: var(--app-border);
+    box-shadow: var(--app-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.tw-dark .build-step__head,
+.tw-dark .flow-card__head:not(.flow-card__head--purple) {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 93, 173, 0.12) 0%,
+        rgba(156, 106, 222, 0.1) 50%,
+        transparent 100%
+    );
+    border-bottom-color: var(--app-border);
+}
+
+.tw-dark .build-step__title,
+.tw-dark .flow-card__title,
+.tw-dark .home-section__title,
+.tw-dark .home-valor h3 {
+    color: var(--bolis-purple);
+}
+
+.tw-dark .build-group__title,
+.tw-dark .flow-field label,
+.tw-dark .flow-eta-box__label,
+.tw-dark .home-section__label,
+.tw-dark .flow-header__label {
+    color: var(--bolis-pink);
+}
+
+/* Títulos decorativos */
+.tw-dark .flow-header__title,
+.tw-dark .home-hero__title {
+    color: var(--bolis-pink);
+    text-shadow: 0 0 32px rgba(255, 93, 173, 0.4), 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.tw-dark .home-hero__pretitle {
+    color: var(--bolis-teal);
+}
+
+.tw-dark .home-hero__text,
+.tw-dark .flow-header__desc {
+    color: var(--app-text-muted);
+}
+
+.tw-dark .home-hero__price {
+    background: linear-gradient(135deg, #3d2060 0%, #5c2d8a 55%, #6a348f 100%);
+    color: #fff;
+    border-color: var(--bolis-yellow);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.tw-dark .home-hero__price strong {
+    color: var(--bolis-yellow);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Iconos en círculos (pasos, tarjetas, badges) */
+.tw-dark .build-step__num,
+.tw-dark .flow-card__icon {
+    background: var(--icon-on-plum-bg);
+    color: var(--icon-on-plum-fg);
+}
+
+.tw-dark .flow-card__head--purple .flow-card__icon {
+    background: var(--icon-on-yellow-bg);
+    color: var(--icon-on-yellow-fg);
+}
+
+.tw-dark .build-step__num .bi,
+.tw-dark .flow-card__icon .bi {
+    color: inherit;
+    opacity: 1;
+    filter: none;
+}
+
+.tw-dark .build-step__ico,
+.tw-dark .build-group__ico {
+    color: var(--bolis-pink);
+}
+
+.tw-dark .build-shape__bi {
+    color: var(--bolis-cream);
+}
+
+.tw-dark .build-shape.is-active .build-shape__bi,
+.tw-dark .build-shape:hover .build-shape__bi {
+    color: var(--bolis-pink);
+}
+
+.tw-dark .build-topping-chip__icon {
+    color: var(--bolis-cream);
+}
+
+.tw-dark .home-combo__badge {
+    background: linear-gradient(135deg, var(--bolis-yellow) 0%, var(--bolis-orange) 100%);
+    color: var(--icon-on-yellow-fg);
+}
+
+/* Formas / chips / inputs */
+.tw-dark .build-shape {
+    background: var(--app-bg-soft);
+    border-color: var(--app-border);
+}
+
+.tw-dark .build-shape.is-active {
+    background: rgba(255, 93, 173, 0.15);
+    border-color: var(--bolis-pink);
+    box-shadow: 0 0 0 3px rgba(255, 93, 173, 0.25);
+}
+
+.tw-dark .build-shape__label {
+    color: var(--app-text-muted);
+}
+
+.tw-dark .build-topping-chip {
+    background: var(--app-bg-soft);
+    border-color: var(--app-border);
+    color: var(--app-text);
+}
+
+.tw-dark .build-topping-chip:hover {
+    border-color: var(--app-border-strong);
+}
+
+.tw-dark .build-topping-chip.is-active {
+    background: linear-gradient(135deg, #ff4d94 0%, #c45fd4 100%);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(255, 77, 148, 0.35);
+}
+
+.tw-dark .build-topping-chip.is-active .build-topping-chip__icon {
+    color: #fff;
+}
+
+.tw-dark .build-plan-opt {
+    background: var(--app-bg-elevated);
+    border-color: var(--app-border);
+}
+
+.tw-dark .build-plan-opt.is-active {
+    background: var(--app-bg-soft);
+    border-color: var(--bolis-pink);
+}
+
+.tw-dark .build-plan-opt__price {
+    color: var(--bolis-purple);
+}
+
+.tw-dark .build-flavor-chip {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.tw-dark .build-flavor-chip:hover {
+    filter: brightness(1.08);
+}
+
+.tw-dark .build-flavor-chip.is-active {
+    border-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 2px var(--bolis-pink), 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.tw-dark .btn-outline-bolis {
+    color: var(--bolis-pink) !important;
+    border-color: rgba(255, 93, 173, 0.55) !important;
+}
+
+.tw-dark .flow-input {
+    background: var(--app-bg-soft);
+    border-color: var(--app-border);
+    color: var(--app-text);
+}
+
+.tw-dark .flow-input:focus {
+    border-color: var(--bolis-pink);
+    box-shadow: 0 0 0 3px rgba(255, 93, 173, 0.2);
+}
+
+.tw-dark .flow-input::placeholder {
+    color: var(--app-text-soft);
+}
+
+/* Resumen bolizada */
+.tw-dark .build-summary {
+    background: var(--app-bg-elevated);
+    border-color: var(--bolis-yellow);
+    box-shadow: var(--app-shadow-md), 0 0 0 1px rgba(255, 229, 102, 0.12);
+}
+
+.tw-dark .build-summary__head {
+    background: linear-gradient(135deg, #6a2d9a 0%, #ff4d94 55%, #c45fd4 100%);
+}
+
+.tw-dark .build-summary__preview {
+    background: linear-gradient(180deg, var(--app-bg-soft) 0%, var(--app-bg-accent) 100%);
+}
+
+.tw-dark .build-summary__footer {
+    background: var(--app-bg-soft);
+    border-top-color: var(--app-border);
+}
+
+.tw-dark .build-summary__row strong,
+.tw-dark .flow-recap-list strong,
+.tw-dark .flow-order-mini strong,
+.tw-dark .home-combo__price {
+    color: var(--bolis-cream);
+}
+
+.tw-dark .flow-eta-box__value {
+    color: var(--bolis-teal);
+}
+
+.tw-dark .build-summary__total {
+    color: var(--bolis-pink);
+}
+
+.tw-dark .build-summary__row > span .bi {
+    color: var(--bolis-pink);
+}
+
+/* Botones */
+.tw-dark .flow-btn--ghost,
+.tw-dark .home-btn--ghost {
+    background: transparent;
+    color: var(--bolis-pink);
+    border-color: rgba(255, 93, 173, 0.5);
+}
+
+.tw-dark .flow-btn--ghost:hover,
+.tw-dark .home-btn--ghost:hover {
+    background: rgba(255, 93, 173, 0.12);
+    border-color: var(--bolis-pink);
+}
+
+.tw-dark .flow-btn--primary,
+.tw-dark .btn {
+    box-shadow: 0 4px 20px rgba(255, 77, 148, 0.4);
+}
+
+.tw-dark .home-btn--primary {
+    box-shadow: 0 4px 18px rgba(255, 77, 148, 0.35);
+}
+
+/* Inicio */
+.tw-dark .home-hero {
+    background: transparent;
+}
+
+.tw-dark .home-hero__flyer-wrap {
+    border-color: var(--bolis-yellow);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 229, 102, 0.2);
+}
+
+.tw-dark .home-sabores {
+    background: transparent;
+}
+
+.tw-dark .build-featured__badge,
+.tw-dark .build-flavor-chip__badge {
+    background: var(--bolis-yellow);
+    color: var(--icon-on-yellow-fg);
+}
+
+.tw-dark .build-featured {
+    background: linear-gradient(135deg, rgba(255, 217, 90, 0.12) 0%, rgba(255, 110, 184, 0.1) 100%);
+    border-color: rgba(255, 217, 90, 0.45);
+}
+
+.tw-dark .home-combos {
+    background: var(--app-bg-elevated);
+}
+
+.tw-dark .home-faq {
+    background: transparent;
+}
+
+/* Flujo */
+.tw-dark .flow-guard {
+    color: var(--app-guard-text);
+    background: var(--app-guard-bg);
+    border-color: var(--app-guard-border);
+}
+
+.tw-dark .flow-card__head--purple {
+    background: linear-gradient(90deg, #4a2878 0%, #6a2d9a 100%);
+}
+
+.tw-dark .flow-total-box {
+    background: linear-gradient(135deg, #4a2878 0%, #6a2d9a 100%);
+    border-color: var(--bolis-yellow);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tw-dark .flow-recap-delivery {
+    background: var(--app-success-bg);
+    color: var(--app-success-text);
+}
+
+.tw-dark .flow-success__title {
+    color: var(--bolis-purple);
+}
+
+.tw-dark .flow-success__icon {
+    color: #8fd694;
+}
+
+.tw-dark .flow-back {
+    color: var(--bolis-pink);
+}
+
+.tw-dark .flow-status--ok {
+    color: #8fd694;
+}
+
+.tw-dark .flow-status--warn {
+    color: #ff8a80;
+}
+
+/* Footer — mismo gradiente de marca, un poco más profundo en oscuro */
+.tw-dark .site-footer {
+    background: linear-gradient(
+        160deg,
+        #2a1548 0%,
+        #5c2060 45%,
+        #8a2868 100%
+    );
+    box-shadow: inset 0 1px 0 rgba(255, 93, 173, 0.15);
+}
+
+.tw-dark .site-footer__logo {
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45));
+}
+
+.tw-dark .site-footer__tagline {
+    color: var(--bolis-yellow);
+}
+
+.tw-dark .site-footer__city {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.tw-dark .site-footer__link {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.tw-dark .site-footer__link:hover {
+    color: #fff;
+}
+
+.tw-dark .site-footer__copy {
+    color: rgba(255, 255, 255, 0.65);
+    border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+/* FAQ */
+.tw-dark .faq-accordion {
+    color: var(--faq-h-text);
+}
+
+.tw-dark .faq .content {
+    color: var(--faq-content-text);
+}
+
+/* Mapa — sin invert agresivo */
+.tw-dark .leaflet-container {
+    background: #14101f;
+}
+
+.tw-dark .leaflet-tile-pane {
+    filter: brightness(0.78) contrast(1.05) saturate(0.9) hue-rotate(-8deg);
+}
+
+.tw-dark .leaflet-control-zoom a {
+    background: var(--app-bg-elevated) !important;
+    color: var(--app-text) !important;
+    border-color: var(--app-border) !important;
+}
+
+.tw-dark .leaflet-control-attribution {
+    background: rgba(12, 10, 16, 0.75) !important;
+    color: var(--app-text-soft) !important;
+    filter: none;
+}
+
+.tw-dark .leaflet-layer {
+    filter: none;
+}
+
+/* Combos destacados */
+.tw-dark .home-combo--featured {
+    border-color: rgba(255, 217, 90, 0.45);
+    box-shadow: var(--app-shadow), 0 0 28px rgba(255, 110, 184, 0.12);
+}
+
+.tw-dark .home-combo__list i {
+    color: var(--bolis-pink);
+}
+
+/* FAQ */
+.tw-dark .home-faq__box {
+    background: var(--app-bg-elevated);
+    border: 1px solid var(--app-border);
+}
+
+body[data-page='inicio'].tw-dark .home-faq__box hr,
+.tw-dark body[data-page='inicio'] .home-faq__box hr {
+    border-color: var(--app-border);
+}
+
+.tw-dark .faq-accordion {
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.tw-dark .faq-accordion:hover {
+    background: rgba(255, 110, 184, 0.08);
+    color: var(--bolis-pink);
+}
+
+.tw-dark .faq.active .faq-accordion {
+    color: var(--bolis-pink);
+}
+
+.tw-dark .faq .content {
+    border-left: 2px solid rgba(110, 212, 212, 0.35);
+    padding-left: 0.75rem;
+    margin-left: 0.25rem;
+}
+
+/* Mapa en domicilio */
+.tw-dark .flow-card--map {
+    border-color: rgba(110, 212, 212, 0.2);
+    box-shadow: var(--app-shadow), 0 0 32px rgba(110, 212, 212, 0.06);
+}
+
+.tw-dark .flow-order-mini {
+    background: var(--app-bg-soft);
+    border-color: rgba(110, 212, 212, 0.2);
+    border-style: solid;
+}
+
+/* Vaso preview */
+.tw-dark .build-cup__body {
+    border-color: rgba(255, 255, 255, 0.15);
+    opacity: 0.92;
+}
+
+/* Cantidad en resumen */
+.tw-dark .build-qty--inline {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.tw-dark .build-qty__btn {
+    background: rgba(255, 255, 255, 0.95);
+    color: #4a2878;
+}
+
+/* Scrollbar sutil (WebKit) */
+.tw-dark ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.tw-dark ::-webkit-scrollbar-thumb {
+    background: rgba(168, 125, 232, 0.35);
+    border-radius: 4px;
+}
+
+.tw-dark ::-webkit-scrollbar-track {
+    background: var(--app-bg);
+}

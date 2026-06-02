@@ -1,0 +1,151 @@
+/* Pago */
+.flow-recap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+.flow-recap-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--app-border);
+    line-height: 1.35;
+}
+
+.flow-recap-list li:last-child {
+    border-bottom: none;
+}
+
+.flow-recap-list span:first-child {
+    color: var(--app-text-soft);
+    flex-shrink: 0;
+}
+
+.flow-recap-list strong {
+    color: var(--bolis-purple);
+    font-weight: 600;
+    text-align: right;
+    word-break: break-word;
+}
+
+.flow-recap-delivery {
+    margin-top: 0.75rem;
+    padding: 0.65rem 0.85rem;
+    background: var(--app-success-bg);
+    border-radius: 10px;
+    font-size: 0.875rem;
+    color: var(--app-success-text);
+    line-height: 1.4;
+}
+
+.flow-total-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--bolis-purple);
+    color: #fff;
+    border-radius: 12px;
+    border: 2px solid var(--bolis-yellow);
+    text-align: center;
+}
+
+.flow-total-box__label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.9;
+    margin: 0 0 0.2rem;
+}
+
+.flow-total-box__amount {
+    font-size: clamp(1.5rem, 5vw, 1.85rem);
+    font-weight: 700;
+    margin: 0;
+}
+
+.flow-pay-form .flow-field:last-of-type {
+    margin-bottom: 0;
+}
+
+.flow-pay-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+}
+
+@media (max-width: 400px) {
+    .flow-pay-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.flow-pay-note {
+    font-size: 0.72rem;
+    text-align: center;
+    color: var(--app-text-soft);
+    margin: 0.85rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.flow-success {
+    display: none;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.flow-success.is-visible {
+    display: block;
+}
+
+.flow-success__icon {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: var(--bolis-lime);
+}
+
+.flow-success__title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--bolis-purple);
+    margin: 0 0 0.5rem;
+}
+
+.flow-success__id {
+    font-size: 0.95rem;
+    margin: 0 0 0.35rem;
+    color: var(--app-text);
+}
+
+.flow-success__id strong {
+    color: var(--bolis-pink);
+    font-size: 1.1rem;
+}
+
+.flow-success__text {
+    font-size: 0.85rem;
+    color: var(--app-text-muted);
+    margin: 0 0 1.25rem;
+    line-height: 1.5;
+}
+
+#payment-form-wrap.is-hidden {
+    display: none;
+}
+
+.flow-card__body--pay {
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .flow-card__body--pay {
+        padding: 1.25rem;
+    }
+}
