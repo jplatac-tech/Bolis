@@ -1,7 +1,5 @@
 <header
-    class="site-header lg:tw-px-4 tw-max-w-[100vw] max-lg:tw-top-0 tw-fixed tw-top-4 lg:tw-left-1/2 lg:tw--translate-x-1/2 tw-z-20 tw-flex tw-min-h-[4rem] tw-h-auto tw-w-full
-            tw-text-gray-700 tw-bg-white tw-px-[3%] tw-rounded-md lg:tw-max-w-5xl tw-shadow-md
-            lg:tw-justify-around lg:!tw-backdrop-blur-lg lg:tw-opacity-[0.99]"
+    class="site-header tw-fixed tw-z-20 tw-flex tw-min-h-[4rem] tw-h-auto tw-w-full tw-text-gray-700 tw-bg-white tw-shadow-md lg:!tw-backdrop-blur-lg"
 >
     <a class="site-header__brand" href="index.html" aria-label="Che Bolis — Inicio">
         <span class="site-header__name" aria-hidden="true">
@@ -9,22 +7,43 @@
         </span>
     </a>
     <div class="collapsible-header animated-collapse max-lg:tw-shadow-md" id="collapsed-header-items">
-        <nav class="tw-relative tw-flex tw-h-full max-lg:tw-h-max tw-w-max tw-gap-5 tw-text-base max-lg:tw-mt-[30px] max-lg:tw-flex-col max-lg:tw-gap-5 lg:tw-mx-auto tw-place-items-center">
+        <nav class="site-header__nav tw-relative tw-flex tw-h-full max-lg:tw-h-max tw-w-max tw-gap-5 tw-text-base max-lg:tw-mt-[30px] max-lg:tw-flex-col max-lg:tw-gap-5 tw-place-items-center">
             <a class="header-links" data-nav="inicio" href="index.html">Inicio</a>
             <a class="header-links" data-nav="bolizada" href="bolizada.html">Armar Bolizada</a>
             <a class="header-links" data-nav="domicilio" href="domicilio.html">Domicilio</a>
             <a class="header-links" data-nav="pago" href="pago.html">Pago</a>
             <a class="header-links" data-nav="inicio" href="index.html#pricing">Combos</a>
         </nav>
-        <div class="lg:tw-mx-4 tw-flex tw-place-items-center tw-gap-[20px] tw-text-base max-md:tw-w-full max-md:tw-flex-col max-md:tw-place-content-center">
-            <button type="button" onclick="toggleMode()" class="header-links tw-text-gray-600" title="Cambiar tema" id="theme-toggle">
-                <i class="bi bi-sun" id="toggle-mode-icon"></i>
-            </button>
+        <div class="site-header__actions site-header__actions--menu lg:tw-hidden tw-flex tw-place-items-center tw-gap-[20px] tw-text-base max-md:tw-w-full max-md:tw-flex-col max-md:tw-place-content-center">
             <a href="bolizada.html" class="btn tw-flex tw-gap-3 tw-px-3 tw-py-2 tw-transition-transform tw-duration-[0.3s] hover:tw-translate-x-2">
                 <span>Pedir Bolizada</span>
                 <i class="bi bi-arrow-right"></i>
             </a>
         </div>
     </div>
-    <button class="bi bi-list tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-3xl tw-text-gray-500 lg:tw-hidden" onclick="toggleHeader()" aria-label="menu" id="collapse-btn"></button>
+    <div class="site-header__toolbar">
+        <button
+            type="button"
+            onclick="toggleMode()"
+            class="site-header__theme-toggle header-links"
+            title="Cambiar tema"
+            id="theme-toggle"
+            aria-label="Cambiar tema claro u oscuro"
+        >
+            <i class="bi bi-sun" id="toggle-mode-icon" aria-hidden="true"></i>
+        </button>
+        <div class="site-header__actions site-header__actions--bar max-lg:tw-hidden tw-flex tw-place-items-center">
+            <a href="bolizada.html" class="btn tw-flex tw-gap-3 tw-px-3 tw-py-2 tw-transition-transform tw-duration-[0.3s] hover:tw-translate-x-2">
+                <span>Pedir Bolizada</span>
+                <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    <button
+        type="button"
+        class="site-header__menu-btn bi bi-list lg:tw-hidden"
+        onclick="toggleHeader()"
+        aria-label="Abrir menú"
+        id="collapse-btn"
+    ></button>
 </header>

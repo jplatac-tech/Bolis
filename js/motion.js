@@ -22,7 +22,6 @@
         'main .build-topping-chip',
         'main .build-shape-opt',
         '.site-footer__brand',
-        '.site-footer__nav',
     ];
 
     const HERO_IMMEDIATE = ['.home-hero__content', '.home-hero__visual'];
@@ -108,15 +107,8 @@
         });
     }
 
-    function initHeaderReveal() {
-        const header = document.querySelector('.site-header');
-        if (!header || header.classList.contains('reveal')) return;
-        header.classList.add('reveal', 'reveal--down', 'is-visible');
-    }
-
     function boot() {
         document.documentElement.classList.add('motion-ready');
-        initHeaderReveal();
         applyReveals(document);
     }
 

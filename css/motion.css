@@ -94,9 +94,10 @@ html.motion-ready body > main {
     transform: none;
 }
 
-/* Header al cargar */
-.site-header.reveal.is-visible {
-    animation: motion-fade-in var(--motion-duration-slow) var(--motion-ease-out);
+@media (min-width: 1024px) {
+    .site-header {
+        animation: motion-fade-in var(--motion-duration-slow) var(--motion-ease-out);
+    }
 }
 
 /* —— Interactivos globales —— */
@@ -108,7 +109,6 @@ html.motion-ready body > main {
 .build-topping-chip,
 .build-shape-opt,
 .header-links,
-.site-footer__nav a,
 .flow-field input,
 .flow-field select,
 .flow-field textarea,
@@ -138,7 +138,7 @@ html.motion-ready body > main {
     }
 
     .site-header .btn:hover {
-        transform: translateY(-1px) translateX(2px);
+        transform: translateY(-1px);
     }
 }
 
@@ -265,23 +265,14 @@ html.motion-ready body > main {
         animation-delay: 0.25s;
     }
 
+    .site-header__menu-btn,
     #collapse-btn {
         transition: transform var(--motion-duration-fast) var(--motion-ease-spring);
     }
 
+    .site-header__menu-btn.bi-x,
     #collapse-btn.bi-x {
         transform: rotate(90deg);
-    }
-}
-
-/* Enlaces del footer */
-.site-footer__nav a {
-    display: inline-block;
-}
-
-@media (hover: hover) {
-    .site-footer__nav a:hover {
-        transform: translateX(3px);
     }
 }
 

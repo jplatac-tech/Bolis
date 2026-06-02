@@ -48,7 +48,7 @@ body {
 .home-hero__tagline,
 .home-hero__pretitle,
 .build-step__hint,
-.site-footer__tagline,
+.site-footer__city,
 .site-footer__copy {
     font-weight: var(--fw-semibold);
     letter-spacing: 0.05em;
@@ -170,12 +170,6 @@ body {
     .build-summary__total {
         font-size: 1.65rem;
     }
-}
-
-/* Footer links */
-.site-footer__link {
-    font-size: var(--type-sm);
-    font-weight: var(--fw-medium);
 }
 
 /* FAQ */

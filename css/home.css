@@ -67,7 +67,7 @@ body[data-page='inicio'] {
 .home-hero {
     padding: 1.5rem 0 2.5rem;
     background: linear-gradient(165deg, var(--app-bg-warm) 0%, var(--app-bg-accent) 45%, var(--app-bg) 100%);
-    overflow: hidden;
+    overflow: visible;
 }
 
 @media (min-width: 768px) {
@@ -210,13 +210,15 @@ body[data-page='inicio'] {
 .home-hero__visual {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     min-width: 0;
 }
 
+/* El marco abraza la imagen (sin franjas laterales vacías) */
 .home-hero__flyer-wrap {
-    width: 100%;
-    max-width: 22rem;
+    width: fit-content;
+    max-width: 100%;
     margin: 0 auto;
     border-radius: 16px;
     overflow: hidden;
@@ -226,28 +228,22 @@ body[data-page='inicio'] {
 }
 
 .home-hero__flyer {
-    width: 100%;
-    height: auto;
     display: block;
+    width: auto;
+    max-width: min(100%, 22rem);
+    height: auto;
+    max-height: 70vh;
 }
 
 @media (min-width: 900px) {
     .home-hero__visual {
-        justify-content: stretch;
-    }
-
-    .home-hero__flyer-wrap {
-        width: 100%;
-        max-width: none;
-        margin: 0;
-        height: clamp(22rem, 72vh, 40rem);
+        justify-content: center;
+        align-items: center;
     }
 
     .home-hero__flyer {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
+        max-width: 100%;
+        max-height: min(78vh, 42rem);
     }
 }
 

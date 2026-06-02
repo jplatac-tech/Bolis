@@ -132,6 +132,71 @@ textarea {
         height: var(--app-header-h);
         padding-left: max(var(--app-gutter), env(safe-area-inset-left)) !important;
         padding-right: max(var(--app-gutter), env(safe-area-inset-right)) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 0.35rem;
+    }
+
+    .site-header__toolbar {
+        order: 2;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        flex-shrink: 0;
+        margin-left: auto;
+    }
+
+    .site-header__theme-toggle {
+        flex-shrink: 0;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 2.65rem;
+        height: 2.65rem;
+        margin: 0 0.15rem 0 0;
+        padding: 0;
+        border: 2px solid var(--app-border);
+        border-radius: 10px;
+        background: var(--app-bg-elevated);
+        color: var(--bolis-purple) !important;
+        font-size: 1.2rem;
+        line-height: 1;
+        z-index: 51;
+        box-shadow: var(--app-shadow);
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .site-header__theme-toggle .bi {
+        font-size: 1.2rem;
+    }
+
+    .site-header__theme-toggle:focus-visible {
+        outline: 2px solid var(--bolis-pink);
+        outline-offset: 2px;
+    }
+
+    .site-header__menu-btn {
+        order: 3;
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        flex-shrink: 0;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 2.65rem;
+        height: 2.65rem;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: var(--app-text-muted) !important;
+        font-size: 1.65rem;
+        line-height: 1;
+        z-index: 51;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
     }
 
     header .collapsible-header {
@@ -142,8 +207,79 @@ textarea {
 }
 
 @media (min-width: 1024px) {
+    /* Centrado sin transform (las animaciones no lo rompen) */
     .site-header {
+        top: 1rem !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: min(calc(100% - 2rem), 64rem) !important;
+        max-width: 64rem !important;
+        transform: none !important;
+        display: grid !important;
+        grid-template-columns: minmax(8.5rem, 1fr) auto minmax(10rem, 1fr);
+        align-items: center;
         border-radius: 12px !important;
+        padding: 0.35rem 1.25rem !important;
+        column-gap: 0.75rem;
+    }
+
+    /* Nav y acciones pasan a ser hijos directos del grid del header */
+    .site-header #collapsed-header-items {
+        display: contents !important;
+    }
+
+    .site-header__brand {
+        grid-column: 1;
+        justify-self: start;
+        margin-right: 0;
+    }
+
+    .site-header__nav {
+        grid-column: 2;
+        justify-self: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.35rem 0.85rem;
+        margin: 0;
+        width: max-content;
+        max-width: 100%;
+    }
+
+    .site-header__toolbar {
+        grid-column: 3;
+        justify-self: end;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+    }
+
+    .site-header__theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0;
+        border: none;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--app-text-muted) !important;
+        font-size: 1.1rem;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .site-header__theme-toggle:hover {
+        color: var(--bolis-pink) !important;
+        background: var(--header-link-hover-bg);
+    }
+
+    .site-header__actions--bar {
+        margin: 0 !important;
     }
 }
 
@@ -155,7 +291,11 @@ textarea {
 
 @media (max-width: 1023px) {
     .site-header__brand {
-        margin-right: 2.85rem;
+        margin-right: 0;
+    }
+
+    .site-header__actions--bar {
+        display: none !important;
     }
 }
 
