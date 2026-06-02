@@ -78,28 +78,37 @@ textarea {
 .site-header__brand {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.45rem;
     flex-shrink: 0;
-    padding: 0.2rem 0.5rem 0.2rem 0;
-    margin-right: 0.35rem;
+    padding: 0.15rem 0.35rem 0.15rem 0;
+    margin-right: 0.25rem;
     text-decoration: none;
-    line-height: 1.1;
+    line-height: 1;
     z-index: 3;
 }
 
 .site-header__brand:focus-visible {
     outline: 2px solid var(--bolis-pink);
     outline-offset: 3px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
-.site-header__name {
-    display: inline-block;
-    font-family: 'Pacifico', cursive;
-    font-size: clamp(1.35rem, 4vw, 1.65rem);
-    letter-spacing: 0.01em;
+.site-header__emblem {
+    display: block;
+    width: 2.35rem;
+    height: 2.35rem;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.site-header__wordmark {
+    display: inline-flex;
+    align-items: baseline;
     white-space: nowrap;
-    line-height: 1.15;
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(1.2rem, 3.5vw, 1.55rem);
+    letter-spacing: 0.01em;
+    line-height: 1.1;
 }
 
 .site-header__name-che {
@@ -108,7 +117,17 @@ textarea {
 
 .site-header__name-bolis {
     color: var(--bolis-pink);
-    text-shadow: 1px 1px 0 var(--bolis-yellow), 2px 2px 0 rgba(74, 20, 140, 0.12);
+}
+
+@media (min-width: 1024px) {
+    .site-header__emblem {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .site-header__wordmark {
+        font-size: 1.6rem;
+    }
 }
 
 .site-header .header-links {
@@ -207,22 +226,13 @@ textarea {
 }
 
 @media (min-width: 1024px) {
-    /* Centrado sin transform (las animaciones no lo rompen) */
     .site-header {
-        top: 1rem !important;
-        left: 0 !important;
-        right: 0 !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        width: min(calc(100% - 2rem), 64rem) !important;
-        max-width: 64rem !important;
-        transform: none !important;
         display: grid !important;
         grid-template-columns: minmax(8.5rem, 1fr) auto minmax(10rem, 1fr);
         align-items: center;
-        border-radius: 12px !important;
-        padding: 0.35rem 1.25rem !important;
         column-gap: 0.75rem;
+        /* Posición flotante centrada (Tailwind lg:left-1/2 + translate) */
+        transform: translateX(-50%) !important;
     }
 
     /* Nav y acciones pasan a ser hijos directos del grid del header */
@@ -280,12 +290,6 @@ textarea {
 
     .site-header__actions--bar {
         margin: 0 !important;
-    }
-}
-
-@media (min-width: 1024px) {
-    .site-header__name {
-        font-size: 1.7rem;
     }
 }
 

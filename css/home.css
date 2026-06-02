@@ -63,31 +63,48 @@ body[data-page='inicio'] {
     padding: 0 var(--app-gutter);
 }
 
-/* —— Hero —— */
+/* —— Hero: imagen a pantalla completa + texto —— */
 .home-hero {
-    padding: 1.5rem 0 2.5rem;
-    background: linear-gradient(165deg, var(--app-bg-warm) 0%, var(--app-bg-accent) 45%, var(--app-bg) 100%);
-    overflow: visible;
-}
-
-@media (min-width: 768px) {
-    .home-hero {
-        padding: 2rem 0 3.5rem;
-    }
-}
-
-.home-hero__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    position: relative;
+    display: flex;
     align-items: center;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    min-height: min(100svh, 56rem);
+    overflow: hidden;
+    isolation: isolate;
 }
 
-@media (min-width: 900px) {
-    .home-hero__grid {
-        grid-template-columns: 1fr 0.95fr;
-        gap: 2.5rem;
-    }
+.home-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url('../assets/images/hero-che-bolis-desktop.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.home-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        100deg,
+        rgba(35, 18, 32, 0.82) 0%,
+        rgba(74, 20, 140, 0.55) 32%,
+        rgba(35, 18, 32, 0.25) 50%,
+        rgba(0, 0, 0, 0.08) 100%
+    );
+}
+
+.home-hero__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: calc(var(--app-header-h) + 2.5rem) 0 3rem;
 }
 
 .home-hero__content {
@@ -96,12 +113,38 @@ body[data-page='inicio'] {
     gap: 1rem;
     align-items: center;
     text-align: center;
+    max-width: 26rem;
+    margin: 0 auto;
 }
 
 @media (min-width: 900px) {
+    .home-hero {
+        min-height: min(100svh, 52rem);
+    }
+
+    .home-hero__bg {
+        background-position: 58% center;
+    }
+
+    .home-hero__overlay {
+        background: linear-gradient(
+            90deg,
+            rgba(35, 18, 32, 0.88) 0%,
+            rgba(74, 20, 140, 0.62) 34%,
+            rgba(35, 18, 32, 0.18) 48%,
+            transparent 62%
+        );
+    }
+
+    .home-hero__inner {
+        padding: calc(var(--app-header-h) + 3rem) 0 4rem;
+    }
+
     .home-hero__content {
         align-items: flex-start;
         text-align: left;
+        margin: 0;
+        max-width: 28rem;
     }
 }
 
@@ -125,19 +168,36 @@ body[data-page='inicio'] {
 
 .home-hero__title {
     font-family: 'Pacifico', cursive;
-    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
     line-height: 1.1;
-    color: var(--bolis-pink);
+    color: #fff;
     margin: 0;
-    text-shadow: 1px 1px 0 var(--app-bg-elevated), 2px 2px 0 rgba(255, 214, 0, 0.45);
+    text-shadow:
+        0 0 20px rgba(233, 30, 140, 0.5),
+        2px 2px 0 var(--bolis-pink),
+        3px 3px 0 rgba(255, 214, 0, 0.45);
 }
 
 .home-hero__text {
-    font-size: 1rem;
+    font-size: clamp(1rem, 2.2vw, 1.125rem);
     line-height: 1.55;
-    color: var(--app-text-muted);
+    color: rgba(255, 255, 255, 0.94);
     max-width: 22rem;
     margin: 0;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+}
+
+.home-hero .home-btn--ghost {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.home-hero .home-btn--ghost:hover {
+    background: rgba(255, 255, 255, 0.22);
+    color: #fff;
 }
 
 .home-hero__actions {
@@ -205,46 +265,6 @@ body[data-page='inicio'] {
     font-size: 1.35rem;
     font-weight: 700;
     color: var(--bolis-yellow);
-}
-
-.home-hero__visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-width: 0;
-}
-
-/* El marco abraza la imagen (sin franjas laterales vacías) */
-.home-hero__flyer-wrap {
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 16px 40px rgba(74, 20, 140, 0.18);
-    border: 3px solid var(--bolis-yellow);
-    line-height: 0;
-}
-
-.home-hero__flyer {
-    display: block;
-    width: auto;
-    max-width: min(100%, 22rem);
-    height: auto;
-    max-height: 70vh;
-}
-
-@media (min-width: 900px) {
-    .home-hero__visual {
-        justify-content: center;
-        align-items: center;
-    }
-
-    .home-hero__flyer {
-        max-width: 100%;
-        max-height: min(78vh, 42rem);
-    }
 }
 
 /* —— Valores —— */

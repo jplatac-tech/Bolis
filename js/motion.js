@@ -24,7 +24,7 @@
         '.site-footer__brand',
     ];
 
-    const HERO_IMMEDIATE = ['.home-hero__content', '.home-hero__visual'];
+    const HERO_IMMEDIATE = ['.home-hero__content'];
 
     let observer;
 

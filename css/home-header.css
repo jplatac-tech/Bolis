@@ -1,0 +1,5 @@
+/* Inicio: hero a pantalla completa bajo la navbar flotante */
+
+body[data-page='inicio'] main {
+    padding-top: 0;
+}

@@ -200,13 +200,6 @@ html.motion-ready body > main {
     opacity: 1;
 }
 
-/* Hero flyer (solo pantallas medianas+) */
-@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
-    .home-hero__flyer-wrap {
-        animation: motion-float 5.5s ease-in-out infinite;
-    }
-}
-
 /* Menú móvil */
 @media (max-width: 1023px) {
     body.modal-open::before {
