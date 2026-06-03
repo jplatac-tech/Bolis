@@ -4,7 +4,8 @@ let destMarker = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     const { loadOrder, saveOrder } = CheBolisOrder;
-    const { STORE, getPlan, SHAPE_NAMES, formatCOP, calcTotal, FLAVOR_LABELS, TOPPING_LABELS } = CheBolisCore;
+    const { STORE, getPlan, SHAPE_NAMES, formatCOP, calcTotal, FLAVOR_LABELS, TOPPING_LABELS, validateOrderForPlan, sanitizeOrder } =
+        CheBolisCore;
     let order = loadOrder();
 
     if (!order.flavors?.length) {
@@ -38,6 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Primero calcula la ruta con tu dirección.');
             return;
         }
+        order = sanitizeOrder(order);
+        const errors = validateOrderForPlan(order);
+        if (errors.length) {
+            alert(`${errors.join('\n')}\n\nVuelve a Armar Bolizada para ajustar tu combo.`);
+            return;
+        }
+        saveOrder(order);
         window.location.href = 'pago.html';
     });
 });

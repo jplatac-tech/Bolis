@@ -343,6 +343,44 @@ function planLimitsText(planId) {
     return parts.join(' · ');
 }
 
+function flavorStepHint(plan, flavorCount) {
+    if (plan.maxFlavors === 1) {
+        return 'Elige <strong>1 sabor</strong> (toca otro para cambiar). Empieza por los sabores fuertes.';
+    }
+    const n = flavorCount ?? 0;
+    return `Hasta <strong>${plan.maxFlavors} sabores</strong> (${n}/${plan.maxFlavors}). Empieza por los sabores fuertes.`;
+}
+
+function toppingStepHint(plan, toppingCount) {
+    const n = toppingCount ?? 0;
+    if (plan.toppingsIncluded && plan.maxToppings == null) {
+        return '<strong>Toppings incluidos</strong> en tu combo — elige los que quieras.';
+    }
+    if (plan.maxToppings != null) {
+        return `Hasta <strong>${plan.maxToppings} toppings</strong> (${n}/${plan.maxToppings}) — se suman al precio del combo.`;
+    }
+    return 'Elige tus toppings.';
+}
+
+/** Errores si el pedido no cumple el combo; [] si está bien */
+function validateOrderForPlan(order) {
+    const plan = getPlan(order.plan);
+    const errors = [];
+    const flavors = order.flavors || [];
+    const toppings = order.toppings || [];
+
+    if (!flavors.length) {
+        errors.push('Elige al menos un sabor.');
+    }
+    if (plan.maxFlavors != null && flavors.length > plan.maxFlavors) {
+        errors.push(`${plan.name}: máximo ${plan.maxFlavors} sabor(es).`);
+    }
+    if (plan.maxToppings != null && toppings.length > plan.maxToppings) {
+        errors.push(`${plan.name}: máximo ${plan.maxToppings} toppings.`);
+    }
+    return errors;
+}
+
 function orderSummaryText(order) {
     const plan = getPlan(order.plan);
     const flavorText = order.flavors.map((f) => FLAVOR_LABELS[f] || f).join(', ');
@@ -410,6 +448,9 @@ window.CheBolisCore = {
     isFeaturedFlavor,
     getPlan,
     planLimitsText,
+    flavorStepHint,
+    toppingStepHint,
+    validateOrderForPlan,
     BASE_PRICE,
     FLAVOR_CATALOG,
     TOPPING_CATALOG,

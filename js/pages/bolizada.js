@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
         PLANS,
         getPlan,
         planLimitsText,
+        flavorStepHint,
+        toppingStepHint,
+        validateOrderForPlan,
         sanitizeOrder,
         formatCOP,
         calcTotal,
@@ -142,7 +145,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const notice = document.getElementById('build-plan-notice');
         if (notice) {
-            notice.textContent = `${plan.name} — ${planLimitsText(plan.id)} · ${formatCOP(plan.price)} c/u`;
+            const flavorCap =
+                plan.maxFlavors != null
+                    ? `${order.flavors.length}/${plan.maxFlavors} sabores`
+                    : `${order.flavors.length} sabores`;
+            const toppingCap =
+                plan.maxToppings != null
+                    ? `${order.toppings.length}/${plan.maxToppings} toppings`
+                    : plan.toppingsIncluded
+                      ? `${order.toppings.length} toppings (incl.)`
+                      : `${order.toppings.length} toppings`;
+            notice.textContent = `${plan.name} — ${flavorCap} · ${toppingCap} · ${formatCOP(plan.price)} c/u`;
+        }
+        const flavorsHint = document.getElementById('flavors-step-hint');
+        if (flavorsHint) {
+            flavorsHint.innerHTML = flavorStepHint(plan, order.flavors.length);
+        }
+        const toppingsHint = document.getElementById('toppings-step-hint');
+        if (toppingsHint) {
+            toppingsHint.innerHTML = toppingStepHint(plan, order.toppings.length);
         }
     }
 
@@ -199,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function canAddFlavor(id) {
         const plan = currentPlan();
         if (order.flavors.includes(id)) return true;
+        if (plan.maxFlavors == null) return true;
         if (plan.maxFlavors === 1) return true;
         return order.flavors.length < plan.maxFlavors;
     }
@@ -262,11 +284,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setPlan(planId) {
         if (!PLANS[planId] || order.plan === planId) return;
+        const before = {
+            flavors: order.flavors.length,
+            toppings: order.toppings.length,
+        };
         order.plan = planId;
         order = sanitizeOrder(order);
+        const trimmed =
+            before.flavors !== order.flavors.length || before.toppings !== order.toppings.length;
         persist();
         renderCatalog();
         syncUIFromOrder();
+        if (trimmed) {
+            showLimitMessage(
+                `Ajustamos tu selección a lo permitido en ${currentPlan().name} (${planLimitsText(planId)}).`
+            );
+        }
         const params = new URLSearchParams(window.location.search);
         params.set('plan', planId);
         const qs = params.toString();
@@ -366,17 +399,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('qty-plus')?.addEventListener('click', () => setQuantity(order.quantity + 1));
 
     document.getElementById('btn-confirm-order')?.addEventListener('click', () => {
-        const plan = currentPlan();
-        if (!order.flavors.length) {
-            alert('Elige al menos un sabor para continuar.');
-            return;
-        }
-        if (plan.maxFlavors != null && order.flavors.length > plan.maxFlavors) {
-            alert(`Tu combo permite máximo ${plan.maxFlavors} sabor(es).`);
-            return;
-        }
-        if (plan.maxToppings != null && order.toppings.length > plan.maxToppings) {
-            alert(`Tu combo permite máximo ${plan.maxToppings} toppings.`);
+        order = sanitizeOrder(order);
+        const errors = validateOrderForPlan(order);
+        if (errors.length) {
+            alert(errors.join('\n'));
+            syncUIFromOrder();
             return;
         }
         persist();

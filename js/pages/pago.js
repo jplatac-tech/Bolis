@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const { loadOrder, saveOrder, clearOrder } = CheBolisOrder;
-    const { formatCOP, calcTotal, getPlan, SHAPE_NAMES, FLAVOR_LABELS, TOPPING_LABELS } = CheBolisCore;
+    const { formatCOP, calcTotal, getPlan, SHAPE_NAMES, FLAVOR_LABELS, TOPPING_LABELS, sanitizeOrder, validateOrderForPlan } =
+        CheBolisCore;
     const { openWhatsAppOrder, getWhatsAppUrl } = CheBolisWhatsApp;
 
-    let order = loadOrder();
+    let order = sanitizeOrder(loadOrder());
 
     if (!order.flavors?.length) {
         document.getElementById('pago-guard')?.classList.add('is-visible');
@@ -71,6 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!order.deliveryCalculated || !order.address) {
             alert('Primero configura la dirección de entrega en Domicilio.');
+            return;
+        }
+
+        order = sanitizeOrder(order);
+        const planErrors = validateOrderForPlan(order);
+        if (planErrors.length) {
+            alert(`${planErrors.join('\n')}\n\nVuelve a Armar Bolizada.`);
             return;
         }
 
