@@ -424,6 +424,19 @@
     color: rgba(255, 255, 255, 0.92);
 }
 
+@media (max-width: 899px) {
+    .tw-dark .home-hero__content {
+        background: rgba(8, 6, 14, 0.82);
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .tw-dark .home-hero .home-btn--ghost {
+        background: #fff;
+        color: var(--bolis-plum);
+        border-color: var(--bolis-pink);
+    }
+}
+
 .tw-dark .home-sabores {
     background: transparent;
 }

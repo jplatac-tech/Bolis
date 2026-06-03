@@ -5,9 +5,25 @@ body[data-page='inicio'] main {
 }
 
 body[data-page='inicio'] .site-header {
-    background: rgba(30, 16, 28, 0.35) !important;
-    border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18) !important;
+    background: rgba(30, 16, 28, 0.55) !important;
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+@media (max-width: 899px) {
+    body[data-page='inicio'] .site-header {
+        background: rgba(30, 16, 28, 0.72) !important;
+    }
+
+    body[data-page='inicio'] .site-header .header-links {
+        color: #fff;
+        font-weight: 600;
+    }
+
+    body[data-page='inicio'] .site-header__theme-toggle {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
 }
 
 body[data-page='inicio'] .site-header .header-links {
