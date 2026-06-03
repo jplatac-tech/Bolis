@@ -535,3 +535,8 @@ body[data-page='inicio'] .faq-accordion {
     font-size: 0.9rem;
     padding: 0.9rem 1.1rem;
 }
+
+body[data-page='inicio'] .faq.active .content {
+    max-height: 12rem;
+    opacity: 1;
+}

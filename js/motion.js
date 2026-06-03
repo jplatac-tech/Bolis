@@ -16,7 +16,6 @@
         'main .home-valor',
         'main .home-sabor',
         'main .home-pricing__card',
-        'main .home-faq__box',
         'main .build-plan-opt',
         'main .build-flavor-chip',
         'main .build-topping-chip',

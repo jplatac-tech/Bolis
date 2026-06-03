@@ -242,19 +242,19 @@ html.motion-ready body > main {
         animation: motion-fade-up var(--motion-duration-slow) var(--motion-ease-out) both;
     }
 
-    header .collapsible-header.is-nav-open .header-links:nth-child(1) {
+    header .collapsible-header.is-nav-open .site-header__nav .header-links:nth-child(1) {
         animation-delay: 0.05s;
     }
-    header .collapsible-header.is-nav-open .header-links:nth-child(2) {
+    header .collapsible-header.is-nav-open .site-header__nav .header-links:nth-child(2) {
         animation-delay: 0.1s;
     }
-    header .collapsible-header.is-nav-open .header-links:nth-child(3) {
+    header .collapsible-header.is-nav-open .site-header__nav .header-links:nth-child(3) {
         animation-delay: 0.15s;
     }
-    header .collapsible-header.is-nav-open .header-links:nth-child(4) {
+    header .collapsible-header.is-nav-open .site-header__nav .header-links:nth-child(4) {
         animation-delay: 0.2s;
     }
-    header .collapsible-header.is-nav-open .header-links:nth-child(5) {
+    header .collapsible-header.is-nav-open .site-header__nav .header-links:nth-child(5) {
         animation-delay: 0.25s;
     }
 

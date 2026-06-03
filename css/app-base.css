@@ -145,6 +145,12 @@ body:not([data-page='inicio']) .site-header {
 }
 
 @media (max-width: 1023px) {
+    #site-header {
+        overflow: visible;
+        position: relative;
+        z-index: 50;
+    }
+
     .site-header {
         top: 0 !important;
         left: 0 !important;
@@ -157,6 +163,7 @@ body:not([data-page='inicio']) .site-header {
         border-right: none;
         border-top: none;
         height: var(--app-header-h);
+        overflow: visible !important;
         background: var(--app-header-glass-mobile) !important;
         padding-left: max(var(--app-gutter), env(safe-area-inset-left)) !important;
         padding-right: max(var(--app-gutter), env(safe-area-inset-right)) !important;
@@ -227,9 +234,52 @@ body:not([data-page='inicio']) .site-header {
         -webkit-tap-highlight-color: transparent;
     }
 
-    header .collapsible-header {
-        background-color: var(--app-bg-elevated) !important;
+    header .collapsible-header,
+    #collapsed-header-items {
+        z-index: 45;
+        top: var(--app-header-h);
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+        background-color: var(--app-header-bg) !important;
         box-shadow: var(--app-shadow-md) !important;
+    }
+
+    header .collapsible-header.is-nav-open,
+    #collapsed-header-items.is-nav-open {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        height: auto !important;
+        min-height: min(85vh, calc(100dvh - var(--app-header-h))) !important;
+        max-height: calc(100dvh - var(--app-header-h));
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 1.25rem var(--app-gutter) 2rem;
+    }
+
+    header .collapsible-header.is-nav-open .header-links,
+    #collapsed-header-items.is-nav-open .header-links {
+        color: var(--app-text) !important;
+        font-size: 1.05rem;
+    }
+
+    header .collapsible-header.is-nav-open .site-header__nav,
+    #collapsed-header-items.is-nav-open .site-header__nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 0.35rem;
+        margin-top: 0.5rem;
     }
 
 }
