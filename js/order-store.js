@@ -13,6 +13,8 @@ const DEFAULT_ORDER = {
     deliveryCalculated: false,
     etaMinutes: null,
     distanceKm: null,
+    customerName: '',
+    customerPhone: '',
 };
 
 function loadOrder() {

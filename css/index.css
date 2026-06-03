@@ -370,7 +370,16 @@ hr{
         overflow-y: auto;
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
-        box-shadow: 0px 2px 3px 2px #9f9f9f7c;
+        box-shadow: var(--app-shadow-md);
+    }
+
+    .tw-dark header .collapsible-header {
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+        border-top: 1px solid var(--app-border);
+    }
+
+    .tw-dark header .collapsible-header .header-links {
+        color: var(--app-text);
     }
 
     /* .header-links{

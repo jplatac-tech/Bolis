@@ -24,8 +24,14 @@
     --app-border: rgba(255, 255, 255, 0.08);
     --app-border-strong: rgba(255, 110, 184, 0.4);
 
-    --app-header-bg: rgba(14, 13, 20, 0.82);
-    --app-header-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
+    --app-header-bg: rgba(14, 13, 20, 0.92);
+    --app-header-glass: rgba(14, 13, 20, 0.55);
+    --app-header-glass-page: rgba(14, 13, 20, 0.72);
+    --app-header-glass-mobile: rgba(14, 13, 20, 0.9);
+    --app-header-glass-hero: rgba(8, 6, 14, 0.55);
+    --app-header-border: rgba(255, 255, 255, 0.1);
+    --app-header-border-hero: rgba(255, 255, 255, 0.14);
+    --app-header-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
     --app-header-glow: rgba(255, 93, 173, 0.2);
 
     --app-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
@@ -72,13 +78,10 @@
     background-attachment: fixed;
 }
 
-/* Header */
+/* Header (fondos vía --app-header-glass* en app-base.css) */
 .tw-dark .site-header {
-    background: rgba(14, 13, 20, 0.48) !important;
     backdrop-filter: blur(16px) saturate(1.15);
     -webkit-backdrop-filter: blur(16px) saturate(1.15);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35) !important;
 }
 
 .tw-dark .site-header .header-links {
@@ -422,19 +425,6 @@
 
 .tw-dark .home-hero__text {
     color: rgba(255, 255, 255, 0.92);
-}
-
-@media (max-width: 899px) {
-    .tw-dark .home-hero__content {
-        background: rgba(8, 6, 14, 0.82);
-        border-color: rgba(255, 255, 255, 0.12);
-    }
-
-    .tw-dark .home-hero .home-btn--ghost {
-        background: #fff;
-        color: var(--bolis-plum);
-        border-color: var(--bolis-pink);
-    }
 }
 
 .tw-dark .home-sabores {

@@ -94,6 +94,20 @@
     flex-wrap: wrap;
 }
 
+.flow-btn--whatsapp-link {
+    margin-bottom: 0.65rem;
+    color: #128c7e;
+    border-color: #25d366;
+}
+
+.flow-btn--whatsapp-link:hover {
+    background: rgba(37, 211, 102, 0.12);
+}
+
+.flow-btn--whatsapp-link .bi {
+    color: #25d366;
+}
+
 .flow-success {
     display: none;
     text-align: center;

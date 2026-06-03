@@ -67,37 +67,42 @@
                             <form id="payment-form" class="flow-pay-form">
                                 <div class="flow-field">
                                     <label for="card-name">Nombre en la tarjeta</label>
-                                    <input type="text" id="card-name" class="flow-input" placeholder="Como aparece en la tarjeta" required />
+                                    <input type="text" id="card-name" class="flow-input" placeholder="Como aparece en la tarjeta" required autocomplete="cc-name" />
                                 </div>
                                 <div class="flow-field">
                                     <label for="card-number">Número de tarjeta</label>
-                                    <input type="text" id="card-number" class="flow-input" placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric" required />
+                                    <input type="text" id="card-number" class="flow-input" placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric" required autocomplete="cc-number" />
                                 </div>
                                 <div class="flow-pay-row">
                                     <div class="flow-field">
                                         <label for="card-exp">Vencimiento</label>
-                                        <input type="text" id="card-exp" class="flow-input" placeholder="MM/AA" maxlength="5" />
+                                        <input type="text" id="card-exp" class="flow-input" placeholder="MM/AA" maxlength="5" required autocomplete="cc-exp" />
                                     </div>
                                     <div class="flow-field">
                                         <label for="card-cvv">CVV</label>
-                                        <input type="text" id="card-cvv" class="flow-input" placeholder="123" maxlength="4" inputmode="numeric" />
+                                        <input type="text" id="card-cvv" class="flow-input" placeholder="123" maxlength="4" inputmode="numeric" required autocomplete="cc-csc" />
                                     </div>
                                 </div>
                                 <button type="submit" class="flow-btn flow-btn--primary flow-btn--block">
                                     <i class="bi bi-lock-fill"></i> Confirmar y pagar
                                 </button>
                                 <p class="flow-pay-note">
-                                    <i class="bi bi-shield-check"></i> Pago seguro con encriptación SSL
+                                    <i class="bi bi-shield-lock"></i> Conexión segura · Tu pedido se notifica a Che Bolis al confirmar
                                 </p>
                             </form>
                         </div>
 
                         <div id="payment-success" class="flow-success">
                             <div class="flow-success__icon" aria-hidden="true"><i class="bi bi-check-circle-fill"></i></div>
-                            <h2 class="flow-success__title">¡Pedido confirmado!</h2>
-                            <p class="flow-success__id">Número: <strong id="payment-order-id"></strong></p>
-                            <p class="flow-success__text">Te enviaremos la confirmación. ¡Gracias por elegir Che Bolis!</p>
-                            <a href="index.html" class="flow-btn flow-btn--primary flow-btn--block">Volver al inicio</a>
+                            <h2 class="flow-success__title">¡Pago confirmado!</h2>
+                            <p class="flow-success__id">Número de pedido: <strong id="payment-order-id"></strong></p>
+                            <p class="flow-success__text">
+                                Tu pedido fue registrado. Si no se abrió WhatsApp, puedes enviar el resumen a Che Bolis con el enlace de abajo.
+                            </p>
+                            <a href="#" id="btn-whatsapp-resend" class="flow-btn flow-btn--ghost flow-btn--block flow-btn--whatsapp-link" target="_blank" rel="noopener noreferrer">
+                                <i class="bi bi-whatsapp"></i> Enviar resumen por WhatsApp
+                            </a>
+                            <a href="index.html" class="flow-btn flow-btn--ghost flow-btn--block">Volver al inicio</a>
                         </div>
                     </div>
                 </div>
@@ -111,6 +116,7 @@
 
     <script src="js/order-store.js"></script>
     <script src="js/order-core.js"></script>
+    <script src="js/whatsapp-order.js"></script>
     <script src="js/layout.js"></script>
     <script src="js/pages/pago.js"></script>
 </body>

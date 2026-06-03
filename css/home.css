@@ -200,118 +200,18 @@ body[data-page='inicio'] {
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
 }
 
+/* Ver sabores: sólido para que se vea sobre la foto del hero */
 .home-hero .home-btn--ghost {
-    background: rgba(255, 255, 255, 0.12);
-    color: #fff;
-    border: 2px solid rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background: #fff;
+    color: var(--bolis-purple);
+    border: 2px solid var(--bolis-pink);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
 }
 
 .home-hero .home-btn--ghost:hover {
-    background: rgba(255, 255, 255, 0.22);
-    color: #fff;
-}
-
-/* Móvil: más contraste en hero (textos y botones legibles) */
-@media (max-width: 899px) {
-    .home-hero {
-        min-height: min(100svh, 48rem);
-    }
-
-    .home-hero__bg {
-        background-position: 55% 40%;
-    }
-
-    .home-hero__overlay {
-        background: linear-gradient(
-            180deg,
-            rgba(30, 14, 28, 0.55) 0%,
-            rgba(30, 14, 28, 0.82) 35%,
-            rgba(45, 21, 37, 0.88) 70%,
-            rgba(30, 14, 28, 0.92) 100%
-        );
-    }
-
-    .home-hero__inner {
-        padding: calc(var(--app-header-h) + 1.5rem) var(--app-gutter) 2.5rem;
-        display: flex;
-        align-items: flex-end;
-        min-height: min(100svh, 48rem);
-    }
-
-    .home-hero__content {
-        width: 100%;
-        max-width: 22rem;
-        padding: 1.35rem 1.15rem 1.5rem;
-        border-radius: 18px;
-        background: rgba(30, 14, 28, 0.72);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    }
-
-    .home-hero__title {
-        font-size: clamp(2.15rem, 10vw, 2.75rem);
-        text-shadow:
-            0 2px 12px rgba(0, 0, 0, 0.45),
-            2px 2px 0 var(--bolis-pink);
-    }
-
-    .home-hero__text {
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #fff;
-        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
-    }
-
-    .home-hero__actions {
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.55rem;
-    }
-
-    .home-hero .home-btn {
-        width: 100%;
-        min-height: 2.85rem;
-        font-size: 0.9375rem;
-    }
-
-    .home-hero .home-btn--primary {
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .home-hero .home-btn--ghost {
-        background: #fff;
-        color: var(--bolis-purple);
-        border: 2px solid var(--bolis-pink);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-    }
-
-    .home-hero .home-btn--ghost:hover,
-    .home-hero .home-btn--ghost:active {
-        background: #fff8e7;
-        color: var(--bolis-magenta);
-    }
-
-    .home-hero__price {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-        margin-top: 0.15rem;
-    }
-}
-
-@media (max-width: 380px) {
-    .home-hero__content {
-        padding: 1.15rem 1rem 1.35rem;
-    }
-
-    .home-hero__title {
-        font-size: 2rem;
-    }
+    background: #fff8e7;
+    color: var(--bolis-magenta);
+    border-color: var(--bolis-magenta);
 }
 
 .home-hero__actions {

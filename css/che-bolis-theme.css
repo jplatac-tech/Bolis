@@ -25,7 +25,13 @@
     --app-border: #d4c8ce;
     --app-border-strong: #d98ab0;
     --app-header-bg: rgba(244, 241, 235, 0.94);
-    --app-header-shadow: 0 4px 18px rgba(74, 20, 140, 0.08);
+    --app-header-glass: rgba(244, 241, 235, 0.65);
+    --app-header-glass-page: rgba(244, 241, 235, 0.78);
+    --app-header-glass-mobile: rgba(244, 241, 235, 0.88);
+    --app-header-glass-hero: rgba(30, 16, 28, 0.35);
+    --app-header-border: rgba(255, 255, 255, 0.45);
+    --app-header-border-hero: rgba(255, 255, 255, 0.18);
+    --app-header-shadow: 0 8px 32px rgba(74, 20, 140, 0.1);
     --app-shadow: 0 6px 18px rgba(45, 21, 37, 0.06);
     --app-shadow-md: 0 8px 24px rgba(45, 21, 37, 0.1);
     --app-guard-bg: #ebe0c4;

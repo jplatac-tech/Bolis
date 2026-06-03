@@ -194,6 +194,16 @@ body[data-page='pago'] {
     box-shadow: none;
 }
 
+.flow-btn--whatsapp {
+    background: #25d366 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+}
+
+.flow-btn--whatsapp:hover {
+    filter: brightness(1.06);
+}
+
 .flow-btn--ghost {
     background: transparent;
     color: var(--bolis-purple);

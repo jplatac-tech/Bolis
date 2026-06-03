@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const { loadOrder, clearOrder } = CheBolisOrder;
+    const { loadOrder, saveOrder, clearOrder } = CheBolisOrder;
     const { formatCOP, calcTotal, getPlan, SHAPE_NAMES, FLAVOR_LABELS, TOPPING_LABELS } = CheBolisCore;
-    const order = loadOrder();
+    const { openWhatsAppOrder, getWhatsAppUrl } = CheBolisWhatsApp;
+
+    let order = loadOrder();
 
     if (!order.flavors?.length) {
         document.getElementById('pago-guard')?.classList.add('is-visible');
@@ -25,26 +27,71 @@ document.addEventListener('DOMContentLoaded', () => {
         del.innerHTML = `<i class="bi bi-truck"></i> <strong>Entrega:</strong> ${order.address} · ~${order.etaMinutes} min · ${order.distanceKm?.toFixed(1)} km`;
     }
 
+    document.getElementById('card-number')?.addEventListener('input', (e) => {
+        let v = e.target.value.replace(/\D/g, '').slice(0, 16);
+        e.target.value = v.replace(/(.{4})/g, '$1 ').trim();
+    });
+
+    document.getElementById('card-exp')?.addEventListener('input', (e) => {
+        let v = e.target.value.replace(/\D/g, '').slice(0, 4);
+        if (v.length >= 3) v = `${v.slice(0, 2)}/${v.slice(2)}`;
+        e.target.value = v;
+    });
+
+    document.getElementById('card-cvv')?.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+    });
+
     document.getElementById('payment-form')?.addEventListener('submit', (e) => {
         e.preventDefault();
-        const card = document.getElementById('card-number')?.value.replace(/\s/g, '');
         const name = document.getElementById('card-name')?.value.trim();
+        const card = document.getElementById('card-number')?.value.replace(/\s/g, '') || '';
+        const exp = document.getElementById('card-exp')?.value.trim();
+        const cvv = document.getElementById('card-cvv')?.value.trim();
 
-        if (!name || !card || card.length < 13) {
-            alert('Completa los datos de tu tarjeta para continuar.');
+        if (!name) {
+            alert('Escribe el nombre en la tarjeta.');
             return;
         }
+
+        if (card.length < 15) {
+            alert('Ingresa un número de tarjeta válido.');
+            return;
+        }
+
+        if (!/^\d{2}\/\d{2}$/.test(exp)) {
+            alert('Ingresa la fecha de vencimiento (MM/AA).');
+            return;
+        }
+
+        if (cvv.length < 3) {
+            alert('Ingresa el CVV de la tarjeta.');
+            return;
+        }
+
+        if (!order.deliveryCalculated || !order.address) {
+            alert('Primero configura la dirección de entrega en Domicilio.');
+            return;
+        }
+
+        order.customerName = name;
+        saveOrder(order);
+
+        const orderId = 'CB-' + Date.now().toString(36).toUpperCase();
+        const customer = { name };
+
+        openWhatsAppOrder(order, orderId, customer);
 
         document.getElementById('payment-form-wrap')?.classList.add('is-hidden');
         const success = document.getElementById('payment-success');
         success?.classList.add('is-visible');
-        document.getElementById('payment-order-id').textContent =
-            'CB-' + Date.now().toString(36).toUpperCase();
-        clearOrder();
-    });
+        document.getElementById('payment-order-id').textContent = orderId;
 
-    document.getElementById('card-number')?.addEventListener('input', (e) => {
-        let v = e.target.value.replace(/\D/g, '').slice(0, 16);
-        e.target.value = v.replace(/(.{4})/g, '$1 ').trim();
+        const resend = document.getElementById('btn-whatsapp-resend');
+        if (resend) {
+            resend.href = getWhatsAppUrl(order, orderId, customer);
+        }
+
+        clearOrder();
     });
 });

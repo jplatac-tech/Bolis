@@ -67,9 +67,9 @@ textarea {
 /* —— Header (cristal / transparente) —— */
 .site-header {
     color: var(--app-text) !important;
-    background: rgba(244, 241, 235, 0.65) !important;
-    box-shadow: 0 8px 32px rgba(74, 20, 140, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: var(--app-header-glass) !important;
+    box-shadow: var(--app-header-shadow) !important;
+    border: 1px solid var(--app-header-border);
     backdrop-filter: blur(16px) saturate(1.15);
     -webkit-backdrop-filter: blur(16px) saturate(1.15);
     align-items: center !important;
@@ -77,7 +77,7 @@ textarea {
 }
 
 body:not([data-page='inicio']) .site-header {
-    background: rgba(244, 241, 235, 0.78) !important;
+    background: var(--app-header-glass-page) !important;
 }
 
 .site-header__brand {
@@ -157,7 +157,7 @@ body:not([data-page='inicio']) .site-header {
         border-right: none;
         border-top: none;
         height: var(--app-header-h);
-        background: rgba(244, 241, 235, 0.55) !important;
+        background: var(--app-header-glass-mobile) !important;
         padding-left: max(var(--app-gutter), env(safe-area-inset-left)) !important;
         padding-right: max(var(--app-gutter), env(safe-area-inset-right)) !important;
         display: flex !important;
